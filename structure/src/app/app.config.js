@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('structure')
+    .module('marathon')
     .config(config);
 
   /** @ngInject */

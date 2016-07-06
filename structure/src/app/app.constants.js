@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('structure')
+    .module('marathon')
     .constant('malarkey', malarkey)
     .constant('moment', moment);
 
