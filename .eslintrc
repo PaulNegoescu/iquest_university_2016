@@ -10,5 +10,11 @@
     "module": true,
     "inject": true,
     "marathon": true
+  },
+
+  // angular/di rule is enabled
+  
+  "rules": {
+    "angular/di": [0]
   }
 }
