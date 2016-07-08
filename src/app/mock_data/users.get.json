@@ -1,0 +1,23 @@
+[
+    {
+        "id":"1",
+        "firstname":"Ion",
+        "lastname":"Matei",
+        "username":"ionmatei",
+        "email":"ion@gmail.com"
+    },
+    {
+        "id":"2",
+        "firstname":"Chirila",
+        "lastname":"Tudor",
+        "username":"tudorache",
+        "email":"tudor@gmail.com"
+    },
+    {
+        "id":"3",
+        "firstname":"Petre",
+        "lastname":"Lucian",
+        "username":"lucianpetre",
+        "email":"petre@gmail.com"
+    }
+]
