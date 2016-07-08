@@ -1,6 +1,6 @@
 (function() {
   'use strict';
   angular
-    .module('marathon', ['ui.router', 'ui.bootstrap']);
+    .module('marathon', ['ui.router', 'ui.bootstrap', 'apiMock']);
 
 })();
