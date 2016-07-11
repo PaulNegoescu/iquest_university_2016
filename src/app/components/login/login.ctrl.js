@@ -5,11 +5,8 @@
 
     function LoginController(Session, $state){
         var self = this;
-<<<<<<< Updated upstream
-=======
         self.user = {};
 
->>>>>>> Stashed changes
         this.login = function(){
             Session.login(self.identifier, self.password).then(function(response){
                 if(response.status == 200){
