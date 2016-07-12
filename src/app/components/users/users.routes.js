@@ -3,9 +3,9 @@
 
     angular.module('marathon').config(function($stateProvider) {
          $stateProvider.state('register', {
-            url:'/register',
+            url: '/register',
             templateUrl: 'app/components/users/users_register.view.html',
-            controller:'RegisterController as vm'
+            controller: 'RegisterController as vm'
         });
     });
 })();
