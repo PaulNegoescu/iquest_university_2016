@@ -1,11 +1,11 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <button class="btn btn-default" type="button" ng-click="vm.showMenu()">
-    Hello, {{vm.user.firstName}}
+  <button class="btn btn-default" type="button" ng-click="vm.toggleMenuVisibility()">
+    Hello, {{vm.firstname}}
     <span class="caret"></span>
   </button>
 
-  <div ng-show="vm.showContent" class="dropdown">
-      {{vm.user.firstname}} {{vm.user.lastname | uppercase}}
+  <div ng-show="vm.shouldShowMenuContent" class="dropdown">
+      <div>{{vm.firstname}} {{vm.lastname | uppercase}}</div>
       <button ng-click="vm.logout()">Logout</button>
   </div>
 </nav>

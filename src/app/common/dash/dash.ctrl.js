@@ -8,16 +8,20 @@
   function DashController(Session, $state) {
     var self = this;
 
-    this.showContent = false;
+    this.shouldShowMenuContent = false;
 
     this.logout = function() {
       Session.logout().then(function() {
+        Session.removeStoredUser();
         $state.go('login');
       });
     };
 
-    this.showMenu = function() {
-      self.showContent = !self.showContent;
+ 
+    this.firstname = Session.getStoredUser();
+
+    this.toggleMenuVisibility = function() {
+      self.shouldShowMenuContent = !self.shouldShowMenuContent;
     };
   }
 })();
