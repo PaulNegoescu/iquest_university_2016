@@ -8,18 +8,24 @@
         self.user = {};
 
         this.register = function() {
-             console.log(self.user);
-             Users.create(self.user).then(function(resp){
-                 //console.log(resp);
-                 if(resp.status = 200 && resp.statusText == "OK") {
-                     $state.go('login');
+            delete self.user.controlPass;
+
+             Users.create(self.user).then(function(resp, $log) {
+                 if(resp.data.body.status = 200 && resp.statusText == "OK") {
+                    $state.go('login');
                  } else {
-                     alert('Some freaking error');
+                     $log.warn(resp);
                  }
             });
-        }
+        };
 
+        this.reset = function() {
+            self.user = {};
+            self.user.email = '';
+            self.user.password = '';
+            self.user.confirmPass = '';
+        };
 
         self.userFields = Users.registerFields;
-    };
+    }
 })();
