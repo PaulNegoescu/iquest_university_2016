@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('LoginController', LoginController);
 
-    function LoginController(Session, $state){
+    function LoginController(Session, Users, $state){
         var self = this;
         self.user = {};
 
@@ -18,33 +18,6 @@
         this.register = function(){
             $state.go('register');
         };
-
-        self.userFields = [
-            {
-                key: 'username',
-                type: 'input',
-                templateOptions: {
-                    type: 'text',
-                    label: 'User Name',
-                    required: true,
-                    minlength: 1,
-                    maxlength: 100,
-                    placeholder: 'User Name'
-                }
-            },
-            {
-                key: 'password',
-                type: 'input',
-                templateOptions: {
-                    type: 'password',
-                    label: 'Password',
-                    required: true,
-                    minlength: 5,
-                    maxlength: 100,
-                    placeholder: 'Password must be at least 5 characters long'
-                }
-            }
-        ]
     }
 })();
 
