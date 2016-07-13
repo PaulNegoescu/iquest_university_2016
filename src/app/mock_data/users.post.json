@@ -1,0 +1,11 @@
+{
+    "body":{
+         "firstNameLength": "false",
+         "lastNameLength": "false",
+         "usernameLength": "false",
+         "usernameChars": "false",
+         "passwordLength": "false",
+         "passwordChars": "false",
+         "emailPattern": "false"
+    }
+}
