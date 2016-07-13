@@ -5,16 +5,20 @@
 
     function LoginController(Session, $state){
         var self = this;
-        console.log("kdsjhfskjhf");
+
         this.login = function(){
             Session.login(self.identifier, self.password).then(function(response){
-                if(response['token']){
+                if(response.status == 200){
                     $state.go('dash');
                 }
             });
         };
-    }
 
+        this.register = function(){
+            $state.go('register');
+        };
+        self.userFields = Session.loginFields;
+    }
 })();
 
 
