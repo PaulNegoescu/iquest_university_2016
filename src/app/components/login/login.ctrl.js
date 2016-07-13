@@ -5,7 +5,6 @@
 
     function LoginController(Session, Users, $state){
         var self = this;
-        self.user = {};
 
         this.login = function(){
             Session.login(self.identifier, self.password).then(function(response){
@@ -18,6 +17,7 @@
         this.register = function(){
             $state.go('register');
         };
+        self.userFields = Users.loginFields;
     }
 })();
 

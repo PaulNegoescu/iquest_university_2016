@@ -8,17 +8,13 @@
     "angular-toastr": "~1.5.0",
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
-<<<<<<< Updated upstream
-    "angular": "~1.5.3",
-    "bootstrap-sass": "bootstrap-sass-official#^3.3.6"
-=======
     "angular": "^1.5.7",
     "bootstrap-sass": "bootstrap-sass-official#^3.3.6",
     "angular-apimock": "^0.3.3",
+    "angular-local-storage": "^0.2.7",
     "api-check": "^7.5.5",
     "angular-formly": "^8.2.1",
     "angular-formly-templates-bootstrap": "^6.3.2"
->>>>>>> Stashed changes
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"
