@@ -12,20 +12,20 @@
 
     this.logout = function() {
       Session.logout().then(function() {
-        Session.removeStoredUser();
+        Session.emptyLocalStorage();
         $state.go('login');
       });
     };
 
- 
-    this.firstname = Session.getStoredUser();
+    this.user = Session.getStoredUser();
+
+    this.token = Session.getStoredToken();
 
     this.toggleMenuVisibility = function() {
       self.shouldShowMenuContent = !self.shouldShowMenuContent;
     };
   }
 })();
-
 
 
 
