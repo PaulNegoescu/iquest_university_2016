@@ -11,7 +11,7 @@
             delete self.user.controlPass;
 
             Users.create(self.user).then(function(resp, $log) {
-                if(resp.status == 200 && resp.statusText == "OK") {
+                if(resp.status === 200 && resp.statusText === "OK") {
                     $state.go('login');
                 } else {
                     $log.warn(resp);
