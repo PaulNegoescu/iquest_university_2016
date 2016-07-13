@@ -10,22 +10,19 @@
         this.register = function() {
             delete self.user.controlPass;
 
-             Users.create(self.user).then(function(resp, $log) {
-                 if(resp.data.body.status = 200 && resp.statusText == "OK") {
+            Users.create(self.user).then(function(resp, $log) {
+                if(resp.status == 200 && resp.statusText == "OK") {
                     $state.go('login');
-                 } else {
-                     $log.warn(resp);
-                 }
+                } else {
+                    $log.warn(resp);
+                }
             });
         };
 
         this.reset = function() {
             self.user = {};
-            self.user.email = '';
-            self.user.password = '';
-            self.user.confirmPass = '';
         };
 
-        self.userFields = Users.registerFields;
+        self.formFields = Users.registerFields;
     }
 })();
