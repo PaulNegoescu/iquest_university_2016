@@ -34,7 +34,7 @@
                 }
             },
             {
-                key: 'userName',
+                key: 'username',
                 type: 'input',
                 templateOptions: {
                     type: 'text',
@@ -78,15 +78,18 @@
                     maxlength: 100,
                     placeholder: 'Re-enter password'
                 },
-                 validators: {
+                validators: {
                     passwordMatch: {
                         expression: function(viewValue, modelValue, scope){
                             return modelValue === scope.model["password"];
+                        },
+                        message: function() {
+                            return 'Passwords do not match!'
                         }
                     }
                 }
             }
-        ];
+        ]
 
         return model;
     }

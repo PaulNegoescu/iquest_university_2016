@@ -1,5 +1,7 @@
 <h3> Register </h3>
 
 <formly-form model="vm.user" fields="vm.formFields" form="vm.regForm">
-  <button type="submit" class="btn btn-success" ng-disabled="vm.regForm.$invalid" ng-click="vm.register(vm.user)">Submit</button>
+    <button type="submit" class="btn btn-success" ng-disabled="vm.regForm.$invalid" ng-click="vm.register(vm.user)">Submit</button>
+    <button type="submit" class="btn btn-warning" ng-click="vm.reset()">Reset</button>
 </formly-form>
+

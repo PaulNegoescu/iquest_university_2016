@@ -3,9 +3,13 @@
 
     angular.module('marathon').controller('RegisterController', ctrl);
 
-    function ctrl(Users, $state) {
+    function ctrl(Users, $state, crAcl) {
         var self = this;
-        self.user = {};
+        crAcl.setRole("ROLE_GUEST");
+
+        this.reset = function() {
+            self.user = {};
+        };
 
         this.register = function() {
             delete self.user.controlPass;
@@ -17,10 +21,6 @@
                     $log.warn(resp);
                 }
             });
-        };
-
-        this.reset = function() {
-            self.user = {};
         };
 
         self.formFields = Users.registerFields;
