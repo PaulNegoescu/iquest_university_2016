@@ -22,11 +22,34 @@
 
         this.getStoredUser = function() {
             return localStorageService.get('firstname');
-        }
+        };
 
         this.removeStoredUser = function() {
             localStorageService.clearAll();
             //console.log('Removed:' + localStorageService.get('firstname'));
-        }
-    } 
+        };
+
+        this.loginFields = [
+            {
+                key: 'username',
+                type: 'input',
+                templateOptions: {
+                    type: 'text',
+                    label: 'Username',
+                    required: true,
+                    placeholder: 'Username'
+                }
+            },
+            {
+                key: 'password',
+                type: 'input',
+                templateOptions: {
+                    type: 'password',
+                    label: 'Password',
+                    required: true,
+                    placeholder: 'Password must be at least 5 characters long'
+                }
+            }
+        ];
+    }
 })();

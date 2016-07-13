@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('marathon').factory('Users', Users)
+    angular.module('marathon').factory('Users', Users);
 
     function Users(BaseModel) {
 
