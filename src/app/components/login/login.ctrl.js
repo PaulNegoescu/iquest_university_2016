@@ -9,6 +9,7 @@
         this.login = function(){
             Session.login(self.identifier, self.password).then(function(response){
                 if(response.status == 200){
+                    Session.storeToken(response.data.token);
                     $state.go('dash');
                 }
             });
