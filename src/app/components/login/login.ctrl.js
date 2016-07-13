@@ -5,6 +5,7 @@
 
     function LoginController(Session, $state, crAcl){
         var self = this;
+        crAcl.setRole("ROLE_GUEST");
 
         this.login = function(){
             Session.login(self.identifier, self.password).then(function(response){
