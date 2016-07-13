@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('marathon').factory('Users', Users)
+    angular.module('marathon').factory('Users', Users);
 
     function Users(BaseModel) {
 
@@ -68,7 +68,7 @@
                 }
             },
             {
-                key: 'confirmPass',
+                key: 'controlPass',
                 type: 'input',
                 templateOptions: {
                     type: 'password',
@@ -78,7 +78,7 @@
                     maxlength: 100,
                     placeholder: 'Re-enter password'
                 },
-               validators: {
+                validators: {
                     passwordMatch: {
                         expression: function(viewValue, modelValue, scope){
                             return modelValue === scope.model["password"];
