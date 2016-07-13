@@ -8,7 +8,7 @@
     /** @ngInject */
 
     function runBlock($log, $state, crAcl) {
-        console.log($state.get());
+
         $log.debug('runBlock end');
         crAcl.setInheritanceRoles({
             "ROLE_GUEST" : ["ROLE_GUEST"],
