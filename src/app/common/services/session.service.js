@@ -8,7 +8,7 @@
         var self = this;
 
         Users.read().then(function(resp) {
-                self.user = resp[0];    
+            self.user = resp[0];
         });
 
         this.login = function(identifier, password) {
@@ -30,9 +30,10 @@
             return localStorageService.get('userObject');
         };
 
-        this.storeToken = function(token) {
+        this.start = function(token) {
             localStorageService.set('token', token);
-        };
+            crAcl.setRole("ROLE_USER");
+        }
 
         this.getStoredToken = function() {
             return localStorageService.get('token');
