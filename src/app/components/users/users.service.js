@@ -3,7 +3,7 @@
 
     angular.module('marathon').factory('Users', Users);
 
-    function Users(BaseModel) {
+    function Users(BaseModel, $timeout) {
 
         var model = Object.create(BaseModel);
         model.entity = 'users';
@@ -19,6 +19,13 @@
                     minlength: 1,
                     maxlength: 100,
                     placeholder: 'First Name'
+                },
+                validation: {
+                    messages: {
+                        required: function(viewValue, modelValue, scope) {
+                            return scope.to.label + ' is required';
+                        }
+                    }
                 }
             },
             {
@@ -31,6 +38,13 @@
                     minlength: 1,
                     maxlength: 100,
                     placeholder: 'Last Name'
+                },
+                validation: {
+                    messages: {
+                        required: function(viewValue, modelValue, scope) {
+                            return scope.to.label + ' is required';
+                        }
+                    }
                 }
             },
             {
@@ -43,6 +57,13 @@
                     minlength: 3,
                     maxlength: 100,
                     placeholder: 'Username'
+                },
+                validation: {
+                    messages: {
+                        required: function(viewValue, modelValue, scope) {
+                            return scope.to.label + ' is required';
+                        }
+                    }
                 }
             },
             {
@@ -53,6 +74,13 @@
                     label: 'Email address',
                     required: true,
                     placeholder: 'Enter email'
+                },
+                validation: {
+                    messages: {
+                        required: function(viewValue, modelValue, scope) {
+                            return scope.to.label + ' is required';
+                        }
+                    }
                 }
             },
             {
@@ -65,6 +93,13 @@
                     minlength: 5,
                     maxlength: 100,
                     placeholder: 'Password must be at least 5 characters long'
+                },
+                validation: {
+                    messages: {
+                        required: function(viewValue, modelValue, scope) {
+                            return scope.to.label + ' is required';
+                        }
+                    }
                 }
             },
             {
@@ -78,13 +113,20 @@
                     maxlength: 100,
                     placeholder: 'Re-enter password'
                 },
+                expressionProperties: {
+                    "templateOptions.disabled" : function(viewValue, modelValue, scope) {
+                        return $timeout(function() {
+                            return !scope.model.password;
+                        }, 1000);
+                    }
+                },
                 validators: {
                     passwordMatch: {
                         expression: function(viewValue, modelValue, scope){
                             return modelValue === scope.model["password"];
                         },
                         message: function() {
-                            return 'Passwords do not match!'
+                            return "Passwords don't match!"
                         }
                     }
                 }
