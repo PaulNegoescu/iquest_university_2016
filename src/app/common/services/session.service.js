@@ -3,7 +3,7 @@
 
     angular.module('marathon').service('Session', Session);
 
-    function Session(apiService, localStorageService, Users) {
+    function Session(apiService, localStorageService, Users, crAcl) {
         this.entity = 'session';
         var self = this;
 
@@ -17,6 +17,8 @@
         };
 
         this.logout = function() {
+            emptyLocalStorage();
+            crAcl.setRole("ROLE_GUEST");
             return apiService.delete(this.entity);
         };
 
@@ -26,17 +28,17 @@
 
         this.getStoredUser = function() {
             return localStorageService.get('userObject');
-        }
+        };
 
         this.storeToken = function(token) {
             localStorageService.set('token', token);
-        }
+        };
 
         this.getStoredToken = function() {
             return localStorageService.get('token');
-        }
+        };
 
-         this.emptyLocalStorage = function() {
+        function emptyLocalStorage() {
             localStorageService.clearAll();
         }
 

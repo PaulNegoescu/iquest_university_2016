@@ -5,17 +5,13 @@
     .module('marathon')
     .controller('DashController', DashController);
 
-  function DashController(Session, $state, crAcl) {
+  function DashController(Session, $state) {
     var self = this;
 
     this.shouldShowMenuContent = false;
 
     this.logout = function() {
       Session.logout().then(function() {
-        Session.emptyLocalStorage();
-
-        crAcl.setRole("ROLE_GUEST");
-
         $state.go('login');
       });
     };
