@@ -18,7 +18,6 @@
       });
     };
 
-
     this.firstname = Session.getStoredUser();
 
     this.toggleMenuVisibility = function() {
