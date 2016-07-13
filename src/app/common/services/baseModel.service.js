@@ -13,7 +13,7 @@
 
         this.read = function() {
 
-            return apiService.read(this.entity)
+            return apiService.read(this.entity);
         };
 
         this.findById = function(id) {
