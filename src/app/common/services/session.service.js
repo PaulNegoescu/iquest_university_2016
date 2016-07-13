@@ -3,31 +3,42 @@
 
     angular.module('marathon').service('Session', Session);
 
-    function Session(apiService, localStorageService){
+    function Session(apiService, localStorageService, Users) {
         this.entity = 'session';
+        var self = this;
 
-        this.login = function(identifier, password){
+        Users.read().then(function(resp) {
+                self.user = resp[0];    
+        });
+
+        this.login = function(identifier, password) {
             return apiService.create(this.entity, {identifier:identifier, password:password})
-                    .then(storeUser(identifier));
+                    .then(storeUser(self.user));
         };
 
-        this.logout = function(){
+        this.logout = function() {
             return apiService.delete(this.entity);
         };
 
-        function storeUser(firstname) {
-            localStorageService.set('firstname', firstname);
-            //console.log(localStorageService.get('firstname'));
+        function storeUser(user) {
+            localStorageService.set('userObject', user);
         }
 
         this.getStoredUser = function() {
-            return localStorageService.get('firstname');
-        };
+            return localStorageService.get('userObject');
+        }
 
-        this.removeStoredUser = function() {
+        this.storeToken = function(token) {
+            localStorageService.set('token', token);
+        }
+
+        this.getStoredToken = function() {
+            return localStorageService.get('token');
+        }
+
+         this.emptyLocalStorage = function() {
             localStorageService.clearAll();
-            //console.log('Removed:' + localStorageService.get('firstname'));
-        };
+        }
 
         this.loginFields = [
             {
