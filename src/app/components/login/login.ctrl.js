@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('LoginController', LoginController);
 
-    function LoginController(Session, Users, $state){
+    function LoginController(Session, $state){
         var self = this;
 
         this.login = function(){
@@ -17,7 +17,7 @@
         this.register = function(){
             $state.go('register');
         };
-        self.userFields = Users.loginFields;
+        self.userFields = Session.loginFields;
     }
 })();
 
