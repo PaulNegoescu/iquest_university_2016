@@ -3,17 +3,14 @@
 
     angular.module('marathon').controller('LoginController', LoginController);
 
-    function LoginController(Session, $state, crAcl){
+    function LoginController(Session, $state){
         var self = this;
-        crAcl.setRole("ROLE_GUEST");
 
         this.login = function(){
             Session.login(self.identifier, self.password).then(function(response){
                 if(response.status == 200){
-                    Session.storeToken(response.data.token);
 
-                    crAcl.setRole("ROLE_USER");
-                    
+                    Session.start(response.data.token);
                     $state.go('dash');
                 }
             });
