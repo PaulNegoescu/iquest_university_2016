@@ -79,6 +79,9 @@
                     messages: {
                         required: function(viewValue, modelValue, scope) {
                             return scope.to.label + ' is required';
+                        },
+                        email: function(viewValue, modelValue, scope) {
+                            return "Your entered email is not valid!";
                         }
                     }
                 }
@@ -98,6 +101,9 @@
                     messages: {
                         required: function(viewValue, modelValue, scope) {
                             return scope.to.label + ' is required';
+                        },
+                        minlength: function(viewValue, modelValue, scope) {
+                            return 'Password must be ' + scope.to.minlength + ' characters long';
                         }
                     }
                 }
