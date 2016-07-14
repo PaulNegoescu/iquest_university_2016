@@ -1,22 +1,22 @@
 [
     {
         "id":"1",
-        "firstname":"Ion",
-        "lastname":"Matei",
+        "firstName":"Ion",
+        "lastName":"Matei",
         "username":"ionmatei",
         "email":"ion@gmail.com"
     },
     {
         "id":"2",
-        "firstname":"Chirila",
-        "lastname":"Tudor",
+        "firstName":"Chirila",
+        "lastName":"Tudor",
         "username":"tudorache",
         "email":"tudor@gmail.com"
     },
     {
         "id":"3",
-        "firstname":"Petre",
-        "lastname":"Lucian",
+        "firstName":"Petre",
+        "lastName":"Lucian",
         "username":"lucianpetre",
         "email":"petre@gmail.com"
     }

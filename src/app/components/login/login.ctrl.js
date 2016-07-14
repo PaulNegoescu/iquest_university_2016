@@ -13,7 +13,7 @@
                     Session.storeToken(response.data.token);
 
                     crAcl.setRole("ROLE_USER");
-                    
+
                     $state.go('dash');
                 }
             });

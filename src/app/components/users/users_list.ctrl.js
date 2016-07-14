@@ -19,7 +19,7 @@
                 size: 'md',
                 resolve: {
                     message: function () {
-                        return 'Are you sure you want to delete user ' + user.firstname + ' ' + user.lastname + '?';
+                        return 'Are you sure you want to delete user ' + user.firstName + ' ' + user.lastName + '?';
                     },
                     selectedItem: function(){
                         return index;
@@ -50,6 +50,4 @@
             return result;
         }
     }
-
-
 })();

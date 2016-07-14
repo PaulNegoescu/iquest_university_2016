@@ -8,7 +8,7 @@
         var self = this;
 
         Users.read().then(function(resp) {
-                self.user = resp[0];    
+                self.user = resp[0];
         });
 
         this.login = function(identifier, password) {
@@ -44,7 +44,7 @@
 
         this.loginFields = [
             {
-                key: 'username',
+                key: 'userName',
                 type: 'input',
                 templateOptions: {
                     type: 'text',

@@ -17,5 +17,4 @@
         });
         crAcl.setRedirect('login');
     }
-
 })();
