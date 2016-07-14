@@ -12,7 +12,7 @@
         });
 
         this.login = function(identifier, password) {
-            return apiService.create(this.entity, {identifier:identifier, password:password})
+            return apiService.create(this.entity, {username:identifier, password:password})
                     .then(storeUser(self.user));
         };
 
