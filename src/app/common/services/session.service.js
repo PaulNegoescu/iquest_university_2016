@@ -45,7 +45,7 @@
 
         this.loginFields = [
             {
-                key: 'username',
+                key: 'userName',
                 type: 'input',
                 templateOptions: {
                     type: 'text',

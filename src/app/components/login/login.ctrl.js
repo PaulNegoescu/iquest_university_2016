@@ -10,6 +10,7 @@
             Session.login(self.identifier, self.password).then(function(response){
                 if(response.status == 200){
 
+                    crAcl.setRole("ROLE_USER");
                     Session.start(response.data.token);
                     $state.go('dash');
                 }
