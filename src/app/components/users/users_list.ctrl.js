@@ -16,6 +16,7 @@
             self.users = result;
         });
 
+
         function openConfirmation(message, index, cb) {
             ConfirmationModal.openModal(message, index).result.then(function (selectedItem) {
                 if(typeof cb === 'function') {
