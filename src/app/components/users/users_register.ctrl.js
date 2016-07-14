@@ -3,9 +3,8 @@
 
     angular.module('marathon').controller('RegisterController', ctrl);
 
-    function ctrl(Users, $state, crAcl) {
+    function ctrl(Users, $state) {
         var self = this;
-        crAcl.setRole("ROLE_GUEST");
 
         this.reset = function() {
             self.user = {};
