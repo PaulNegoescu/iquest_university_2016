@@ -11,7 +11,7 @@
                 if(response.status == 200){
 
                     crAcl.setRole("ROLE_USER");
-                    Session.start(response.data.token);
+                    Session.start(response.token);
                     $state.go('dash');
                 }
             });
