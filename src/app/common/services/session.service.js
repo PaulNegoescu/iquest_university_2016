@@ -8,7 +8,7 @@
         var self = this;
 
         Users.read().then(function(resp) {
-            self.user = resp[0];
+            self.user = resp;
         });
 
         this.login = function(username, password) {
