@@ -7,7 +7,7 @@
 			templateUrl: 'app/common/dash/dash.view.html',
 			controller: 'DashController as vm',
             data: {
-                is_granted: ["ROLE_USER","ROLE_ADMIN"]
+                //is_granted: ["ROLE_USER","ROLE_ADMIN"]
             }
 		});
 	});

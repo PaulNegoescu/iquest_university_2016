@@ -1,13 +1,11 @@
 {
     "token":"987932kjkdaskdnaasdjkl3l2432232",
-    "body": [
-        {
+    "user": {
             "id":"1",
             "firstName":"Ion",
             "lastName":"Matei",
             "username":"ionmatei",
             "email":"ion@gmail.com"
-        }
-    ]
+    }
 }
 

@@ -24,7 +24,7 @@
         };
 
         function storeUser(user) {
-            localStorageService.set('userObject', user);
+            localStorageService.set('userObject', user.user);
         }
 
         this.getStoredUser = function() {
