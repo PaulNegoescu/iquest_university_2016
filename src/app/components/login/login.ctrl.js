@@ -7,7 +7,7 @@
         var self = this;
 
         this.login = function(){
-            Session.login(self.identifier, self.password).then(function(response){
+            Session.login(self.user.username, self.user.password).then(function(response){
                 if(response.status == 200){
 
                     Session.start(response.token);
