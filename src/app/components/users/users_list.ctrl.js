@@ -3,19 +3,18 @@
 
     angular.module('marathon').controller('usersListController', usersListCtrl);
 
-    function usersListCtrl(ConfirmationModal, Users, $log) {
+    function usersListCtrl(ConfirmationModal, Users, RolesService, $log) {
         var self = this;
 
         this.searchUser = '';
-
-        this.shouldShowButtonPfm = true;
-
-        this.shouldShowButtonAdmin = true;
 
         Users.read().then(function(result) {
             self.users = result;
         });
 
+        RolesService.read().then(function(result) {
+            self.roles = result;
+        });
 
         function openConfirmation(message, index, cb) {
             ConfirmationModal.openModal(message, index).result.then(function (selectedItem) {
@@ -29,26 +28,28 @@
         };
 
         this.openDeleteConfirmation = function(user, index) {
-            openConfirmation('Are you sure you want to delete user ' + user.firstname + ' ' + user.lastname + '?', index, removeUser);
-        };
-
-        this.openPfmConfirmation = function(user, index, action) {
-            this.shouldShowButtonPfm = false;
-            openConfirmation('Are you sure you want to ' + action + ' ' + user.firstname + ' ' + user.lastname + ' as PFM?', index, function(selectedUser) { toggleRole(selectedUser, 'pfm'); });
+            openConfirmation('Are you sure you want to delete user ' + user.firstName + ' ' + user.lastName + '?', index, removeUser);
         };
 
         this.openAdminConfirmation = function(user, index, action) {
-            this.shouldShowButtonAdmin = false;
-            openConfirmation('Are you sure you want to ' + action + ' ' + user.firstname + ' ' + user.lastname + ' as ADMIN?', index, function(selectedUser) { toggleRole(selectedUser, 'admin'); });
+            openConfirmation('Are you sure you want to ' + action + ' ' + user.firstName + ' ' + user.lastName + ' as ADMIN?', index, function(selectedUser) { toggleRole(selectedUser, self.roles[0].id, self.roles[0].name, self.roles[1].id, self.roles[1].name); });
         };
 
-        function toggleRole(selectedUser, role) {
-            var index = self.users[selectedUser].roles.indexOf(role);
-            if (index >= 0) {
-                self.users[selectedUser].roles.splice(index, 1);
+        function toggleRole(selectedUser, id, role, modified_id, modified_role) {
+            var user_id = self.users[selectedUser].roles.id;
+            var user_role = self.users[selectedUser].roles.name;
+
+            if (user_id == id && user_role == role) {
+                self.users[selectedUser].roles = {
+                    "id": modified_id,
+                    "name": modified_role 
+                };
                 Users.update(self.users[selectedUser]);
             } else {
-                self.users[selectedUser].roles.push(role);
+                self.users[selectedUser].roles = {
+                    "id": id,
+                    "name": role 
+                };
                 Users.update(self.users[selectedUser]);
             }
         }

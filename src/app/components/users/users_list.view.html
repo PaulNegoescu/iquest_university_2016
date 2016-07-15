@@ -22,11 +22,8 @@
         <td>
             <button ng-click="vm.openDeleteConfirmation(user, $index)" class="btn btn-danger" >Delete User</button>
 
-            <button ng-click="vm.openPfmConfirmation(user, $index, 'set')" class="btn btn-warn" ng-show="user.roles.indexOf('pfm') < 0">Set PFM</button>
-            <button ng-click="vm.openPfmConfirmation(user, $index, 'unset')" class="btn btn-warn" ng-show="user.roles.indexOf('pfm') >= 0">Delete PFM</button>
-
-            <button ng-click="vm.openAdminConfirmation(user, $index, 'set')" class="btn btn-warn" ng-show="user.roles.indexOf('admin') < 0">Set ADMIN</button>
-            <button ng-click="vm.openAdminConfirmation(user, $index, 'unset')" class="btn btn-warn" ng-show="user.roles.indexOf('admin') >= 0">Delete ADMIN</button>
+            <button ng-click="vm.openAdminConfirmation(user, $index, 'set')" class="btn btn-warn" ng-show="user.roles.name !== 'admin'">Set ADMIN</button>
+            <button ng-click="vm.openAdminConfirmation(user, $index, 'unset')" class="btn btn-warn" ng-show="user.roles.name === 'admin'">Delete ADMIN</button>
         </td>
     </tr>
     </tbody>
