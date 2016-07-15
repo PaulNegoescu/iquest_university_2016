@@ -7,6 +7,7 @@
         var self = this;
 
         this.login = function(){
+            console.log(this.user.username, this.user.password);
             Session.login(self.user.username, self.user.password).then(function(response){
                 if(response.status == 200){
 

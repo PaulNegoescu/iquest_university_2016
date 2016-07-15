@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('usersListController', usersListCtrl);
 
-    function usersListCtrl(Users, $uibModal, $log){
+    function usersListCtrl(Users, $uibModal, $log, $state){
         var self = this;
 
         this.searchUser = '';
@@ -11,7 +11,9 @@
         Users.read().then(function(result){
             self.users = result;
         });
-
+        this.manage = function() {
+            $state.go('manage');
+        }
         this.openConfirmationModal = function(user, index){
             var modalInstance = $uibModal.open({
                 templateUrl: 'app/common/confirm_modal/confirm_modal.view.html',
