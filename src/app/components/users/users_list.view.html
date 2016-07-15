@@ -20,9 +20,14 @@
         <td>{{user.username}}</td>
         <td>{{user.email}}</td>
         <td>
-            <button ng-click="vm.openConfirmationModal(user, $index)" class="btn btn-danger" >Delete User</button>
+            <button ng-click="vm.openDeleteConfirmation(user, $index)" class="btn btn-danger" >Delete User</button>
+
+            <button ng-click="vm.openAdminConfirmation(user, $index, 'set')" class="btn btn-warn" ng-show="user.roles.name !== 'admin'">Set ADMIN</button>
+            <button ng-click="vm.openAdminConfirmation(user, $index, 'unset')" class="btn btn-warn" ng-show="user.roles.name === 'admin'">Delete ADMIN</button>
         </td>
     </tr>
     </tbody>
 </table>
+
+
 
