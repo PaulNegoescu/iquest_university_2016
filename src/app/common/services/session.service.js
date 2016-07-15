@@ -12,6 +12,7 @@
         });
 
         this.login = function(identifier, password) {
+            crAcl.setRole("ROLE_USER");
             return apiService.create(this.entity, {username:identifier, password:password})
                     .then(storeUser(self.user));
         };

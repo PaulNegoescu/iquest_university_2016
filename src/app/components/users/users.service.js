@@ -93,7 +93,7 @@
                     type: 'password',
                     label: 'Password',
                     required: true,
-                    minlength: 5,
+                    minlength: 6,
                     maxlength: 100,
                     placeholder: 'Password must be at least 5 characters long'
                 },
@@ -115,7 +115,7 @@
                     type: 'password',
                     label: 'Confirm your password',
                     required: true,
-                    minlength: 5,
+                    minlength: 6,
                     maxlength: 100,
                     placeholder: 'Re-enter password'
                 },
