@@ -11,9 +11,9 @@
             self.user = resp[0];
         });
 
-        this.login = function(identifier, password) {
+        this.login = function(username, password) {
             crAcl.setRole("ROLE_USER");
-            return apiService.create(this.entity, {username:identifier, password:password})
+            return apiService.create(this.entity, {username:username, password:password})
                     .then(storeUser(self.user));
         };
 
@@ -34,7 +34,7 @@
         this.start = function(token) {
             localStorageService.set('token', token);
             crAcl.setRole("ROLE_USER");
-        }
+        };
 
         this.getStoredToken = function() {
             return localStorageService.get('token');
@@ -46,7 +46,7 @@
 
         this.loginFields = [
             {
-                key: 'userName',
+                key: 'username',
                 type: 'input',
                 templateOptions: {
                     type: 'text',
@@ -62,7 +62,7 @@
                     type: 'password',
                     label: 'Password',
                     required: true,
-                    placeholder: 'Password must be at least 5 characters long'
+                    placeholder: 'Password must be at least 6 characters long'
                 }
             }
         ];
