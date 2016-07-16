@@ -1,9 +1,9 @@
 (function() {
     'use strict';
 
-    angular.module('marathon').controller('ManageController', ctrl);
+    angular.module('marathon').controller('ManageController', ManageController);
 
-    function ctrl(Session, Users, $state) {
+    function ManageController(Session, Users, $state) {
         var self = this;
 
         this.reset = function() {
@@ -11,7 +11,6 @@
         };
 
         this.token = Session.getStoredToken();
-        console.log(this.token);
 
         this.manage = function() {
             delete self.user.password;
