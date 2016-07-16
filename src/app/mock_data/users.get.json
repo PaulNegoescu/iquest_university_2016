@@ -1,10 +1,30 @@
-{
+[
+    {
     "token":"987932kjkdaskdnaasdjkl3l2432232",
     "user": {
-        "id":"1",
-        "firstName":"Ion",
-        "lastName":"Matei",
-        "username":"ionmatei",
-        "email":"ion@gmail.com"
+        "id": "1",
+        "firstName": "Ion",
+        "lastName": "Matei",
+        "username": "ionmatei",
+        "email": "ion@gmail.com",
+        "roles": ["pfm"]
     }
-}
+    },
+    {
+        "id":"2",
+        "firstName":"Chirila",
+        "lastName":"Tudor",
+        "username":"tudorache",
+        "email":"tudor@gmail.com",
+        "roles":["admin"]
+    },
+    {
+        "id":"3",
+        "firstName":"Petre",
+        "lastName":"Lucian",
+        "username":"lucianpetre",
+        "email":"petre@gmail.com",
+        "roles":["pfm", "admin"]
+    }
+]
+
