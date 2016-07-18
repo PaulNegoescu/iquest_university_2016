@@ -7,10 +7,6 @@
         this.entity = 'session';
         var self = this;
 
-        Users.read().then(function(resp) {
-            self.user = resp;
-        });
-
         this.login = function(username, password) {
             crAcl.setRole("ROLE_USER");
             return apiService.create(this.entity, {username:username, password:password})
