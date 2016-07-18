@@ -5,7 +5,10 @@
         "lastName":"Matei",
         "username":"ionmatei",
         "email":"ion@gmail.com",
-        "roles":["pfm"]
+        "role":{
+            "id": "1",
+            "name":"admin"
+        }
     },
     {
         "id":"2",
@@ -13,7 +16,10 @@
         "lastName":"Tudor",
         "username":"tudorache",
         "email":"tudor@gmail.com",
-        "roles":["admin"]
+        "role":{
+            "id": "2",
+            "name":"user"
+        }
     },
     {
         "id":"3",
@@ -21,6 +27,9 @@
         "lastName":"Lucian",
         "username":"lucianpetre",
         "email":"petre@gmail.com",
-        "roles":["pfm", "admin"]
+        "role":{
+            "id": "1",
+            "name":"admin"
+        }
     }
 ]
