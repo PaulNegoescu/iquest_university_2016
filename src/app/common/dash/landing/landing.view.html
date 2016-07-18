@@ -1,0 +1,19 @@
+<h2>Standard View</h2>
+
+<div class="row">
+    <div class="container-item col-sm-5">
+	    <h3>PERFORMANCE MANAGER</h3>
+	    
+	    <ol>
+	      <li ng-repeat="owner in vm.owners">{{owner.firstName}} {{owner.lastName | uppercase}}</li>
+	    <ol>
+    </div>
+     
+    <div class="container-item col-sm-5 col-sm-offset-2">
+	    <h3>TEAM MEMBER</h3>
+	    
+	    <ol>
+	      <li ng-repeat="member in vm.members">{{member.firstName}} {{member.lastName | uppercase}}</li>
+	    <ol>
+	</div>
+</div>
