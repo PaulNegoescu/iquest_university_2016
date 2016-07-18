@@ -80,7 +80,7 @@
                         required: function(viewValue, modelValue, scope) {
                             return scope.to.label + ' is required';
                         },
-                        email: function(viewValue, modelValue, scope) {
+                        email: function() {
                             return "Your entered email is not valid!";
                         }
                     }
@@ -129,7 +129,10 @@
                 validators: {
                     passwordMatch: {
                         expression: function(viewValue, modelValue, scope){
-                            return modelValue === scope.model["password"];
+                            var value = viewValue || modelValue;
+                                if(value) {
+                                    return modelValue === scope.model["password"];
+                                }
                         },
                         message: function() {
                             return "Passwords don't match!"
@@ -139,6 +142,6 @@
             }
         ];
 
-        return model;
+    return model;
     }
 })();
