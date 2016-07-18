@@ -95,7 +95,7 @@
                     required: true,
                     minlength: 6,
                     maxlength: 100,
-                    placeholder: 'Password must be at least 5 characters long'
+                    placeholder: 'Password must be at least 6 characters long'
                 },
                 validation: {
                     messages: {

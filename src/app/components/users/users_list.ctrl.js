@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('usersListController', usersListCtrl);
 
-    function usersListCtrl(ConfirmationModal, Users, RolesService, $log) {
+    function usersListCtrl(ConfirmationModal, Users, RolesService, $log, $state) {
         var self = this;
 
         this.searchUser = '';
@@ -11,6 +11,23 @@
         Users.read().then(function(result) {
             self.users = result;
         });
+        this.manage = function() {
+            $state.go('manage');
+        };
+        this.openConfirmationModal = function(user, index){
+            var modalInstance = $uibModal.open({
+                templateUrl: 'app/common/confirm_modal/confirm_modal.view.html',
+                controller: 'confirmModalController as vm',
+                size: 'md',
+                resolve: {
+                    message: function () {
+                        return 'Are you sure you want to delete user ' + user.firstName + ' ' + user.lastName + '?';
+                    },
+                    selectedItem: function(){
+                        return index;
+                    }
+                }
+            });
 
         RolesService.read().then(function(result) {
             self.roles = result;
@@ -42,13 +59,13 @@
             if (user_id == id && user_role == role) {
                 self.users[selectedUser].roles = {
                     "id": modified_id,
-                    "name": modified_role 
+                    "name": modified_role
                 };
                 Users.update(self.users[selectedUser]);
             } else {
                 self.users[selectedUser].roles = {
                     "id": id,
-                    "name": role 
+                    "name": role
                 };
                 Users.update(self.users[selectedUser]);
             }
@@ -69,5 +86,6 @@
             return result;
         };
     }
+}
 })();
 

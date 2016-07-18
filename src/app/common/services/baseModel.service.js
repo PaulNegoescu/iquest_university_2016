@@ -21,9 +21,12 @@
             return apiService.read(this.entity +'/'+ id);
         };
 
-        this.update = function(data) {
+        this.update = function(token, data) {
 
-            return apiService.update(this.entity, data);
+            return apiService.update(this.entity, {
+                "token":token,
+                "user": data
+            });
         };
 
         this.delete = function() {
