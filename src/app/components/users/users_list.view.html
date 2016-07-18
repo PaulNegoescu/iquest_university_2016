@@ -24,6 +24,8 @@
 
             <button ng-click="vm.openAdminConfirmation(user, $index, 'set')" class="btn btn-warn" ng-show="user.role.name !== 'admin'">Set ADMIN</button>
             <button ng-click="vm.openAdminConfirmation(user, $index, 'unset')" class="btn btn-warn" ng-show="user.role.name === 'admin'">Delete ADMIN</button>
+            
+            <button ng-click="vm.manage()" class = "btn btn-warning">Edit Profile</button>
         </td>
     </tr>
     </tbody>

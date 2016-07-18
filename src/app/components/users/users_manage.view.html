@@ -1,0 +1,6 @@
+<h3> Update User Profile </h3>
+
+<formly-form model="vm.user" fields="vm.formFields" form="vm.regForm">
+    <button type="submit" class="btn btn-success" ng-disabled="vm.regForm.$invalid" ng-click="vm.manage(vm.user)">Update</button>
+    <button type="submit" class="btn btn-warning" ng-click="vm.reset()">Reset</button>
+</formly-form>

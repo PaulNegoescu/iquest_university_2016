@@ -17,7 +17,6 @@
     };
 
     this.user = Session.getStoredUser();
-
     this.token = Session.getStoredToken();
 
     this.toggleMenuVisibility = function() {

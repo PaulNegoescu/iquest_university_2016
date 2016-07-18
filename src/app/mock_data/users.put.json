@@ -4,33 +4,20 @@
         "firstName":"Ion",
         "lastName":"Matei",
         "username":"ionmatei",
-        "email":"ion@gmail.com",
-        "role":{
-            "id": "1",
-            "name":"admin"
-        }
+        "email":"ion@gmail.com"
     },
     {
         "id":"2",
         "firstName":"Chirila",
         "lastName":"Tudor",
         "username":"tudorache",
-        "email":"tudor@gmail.com",
-        "role":{
-            "id": "2",
-            "name":"user"
-        }
+        "email":"tudor@gmail.com"
     },
     {
         "id":"3",
         "firstName":"Petre",
         "lastName":"Lucian",
         "username":"lucianpetre",
-        "email":"petre@gmail.com",
-        "role":{
-            "id": "1",
-            "name":"admin"
-        }
+        "email":"petre@gmail.com"
     }
 ]
-
