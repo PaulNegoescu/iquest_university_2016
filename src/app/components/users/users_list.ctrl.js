@@ -53,17 +53,17 @@
         };
 
         function toggleRole(selectedUser, id, role, modified_id, modified_role) {
-            var user_id = self.users[selectedUser].roles.id;
-            var user_role = self.users[selectedUser].roles.name;
+            var user_id = self.users[selectedUser].role.id;
+            var user_role = self.users[selectedUser].role.name;
 
             if (user_id == id && user_role == role) {
-                self.users[selectedUser].roles = {
+                self.users[selectedUser].role = {
                     "id": modified_id,
                     "name": modified_role
                 };
                 Users.update(self.users[selectedUser]);
             } else {
-                self.users[selectedUser].roles = {
+                self.users[selectedUser].role = {
                     "id": id,
                     "name": role
                 };
