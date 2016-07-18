@@ -1,16 +1,29 @@
 (function() {
 	'use strict';
 
-	angular.module('marathon').service('apiService', ['$http', 'config_api', apiService]);
+	angular.module('marathon').service('apiService', apiService);
 	function apiService($http, config_api) {
 		var url = config_api + '/';
+
+        this.setToken = function (token) {
+            $http.defaults.headers.common = {
+                'Session-Token': token
+            };
+        };
+
+        this.removeToken = function () {
+            $http.defaults.headers.common = {};
+        };
 
 		this.create = function(endpoint, data) {
 			return $http.post(url + endpoint, data);
 		};
 
-		this.read = function(endpoint) {
-			return $http.get(url + endpoint).then(extractData);
+		this.read = function(endpoint, data) {
+            var config = {
+                params:data
+            };
+			return $http.get(url + endpoint, config).then(extractData);
 		};
 
 		this.update = function(endpoint, data) {
