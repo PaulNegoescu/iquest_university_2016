@@ -15,7 +15,7 @@
 
             Users.create(self.user).then(function(resp, $log) {
                 if(resp.status === 200 && resp.statusText === "OK") {
-                    $state.go('login');
+                    $state.go('users');
                 } else {
                     $log.warn(resp);
                 }

@@ -15,10 +15,7 @@
                 }
             });
         };
-
-        this.register = function(){
-            $state.go('register');
-        };
+        
         self.userFields = Session.loginFields;
     }
 })();
