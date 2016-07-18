@@ -8,7 +8,7 @@
 			controller: 'DashController as vm',
 			abstract: true,
             data: {
-                is_granted: ["ROLE_USER","ROLE_ADMIN"]
+                //is_granted: ["ROLE_USER","ROLE_ADMIN"]
             }
 		})
 	});
