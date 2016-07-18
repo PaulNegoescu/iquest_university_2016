@@ -5,7 +5,7 @@
         "lastName":"Matei",
         "username":"ionmatei",
         "email":"ion@gmail.com",
-        "roles":{
+        "role":{
             "id": "1",
             "name":"admin"
         }
@@ -16,7 +16,7 @@
         "lastName":"Tudor",
         "username":"tudorache",
         "email":"tudor@gmail.com",
-        "roles":{
+        "role":{
             "id": "2",
             "name":"user"
         }
@@ -27,7 +27,7 @@
         "lastName":"Lucian",
         "username":"lucianpetre",
         "email":"petre@gmail.com",
-        "roles":{
+        "role":{
             "id": "1",
             "name":"admin"
         }
