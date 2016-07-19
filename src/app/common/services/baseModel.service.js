@@ -22,16 +22,12 @@
         };
 
         this.update = function(data) {
-            console.log({
-                "user": data
-            });
             return apiService.update(this.entity, {
                 "user": data
             });
         };
 
         this.delete = function(id) {
-            console.log('baseModel',this.entity + '/' + id);
             return apiService.delete(this.entity + '/' + id);
         };
     }
