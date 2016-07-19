@@ -3,7 +3,7 @@
 
     angular.module('marathon').service('Session', Session);
 
-    function Session(apiService, localStorageService, Users, crAcl, $state) {
+    function Session(apiService, localStorageService, Users, crAcl) {
         this.entity = 'session';
         var vm = this;
 
@@ -14,7 +14,7 @@
                         storeUser(response.data.user);
                         start(response.data.token);
                         apiService.setToken(response.data.token);
-                        $state.go('dash.landing');
+                        return response;
                     });
         };
 
