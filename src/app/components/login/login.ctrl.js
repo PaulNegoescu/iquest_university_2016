@@ -7,8 +7,11 @@
         var vm = this;
 
         vm.login = function(){
-            Session.login(vm.user.username, vm.user.password);
-            $state.go('dash.landing');
+            Session.login(vm.user.username, vm.user.password).then(function(resp) {
+                if(resp.status == 200) {
+                    $state.go('dash');
+                }
+            })
         };
 
         vm.userFields = Session.loginFields;
