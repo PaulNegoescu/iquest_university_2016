@@ -9,13 +9,11 @@
         this.login = function(){
             Session.login(self.user.username, self.user.password).then(function(response){
                 if(response.status == 200){
-
-                    Session.start(response.token);
                     $state.go('dash');
                 }
             });
         };
-        
+
         self.userFields = Session.loginFields;
     }
 })();
