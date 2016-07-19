@@ -1,0 +1,32 @@
+.assignTeamModal{
+    .assignModalWrap{
+        overflow: hidden;
+        height: 250px;
+        overflow-y: auto;
+        .first-column,
+        .second-column{
+            background-color: #f5f5f5;
+            transition: all .2s;
+            padding: 4px;
+            line-height: 1.428571429;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            float: left;
+            margin:15px 0 0 2%;
+            width: 48%;
+
+        }
+        .first-column{
+            .btn:active{
+                transform: translate(200px);
+                background-color: #449d44;
+            }
+        }
+        .second-column{
+            .btn:active{
+                transform: translate(-200px);
+                background-color: #286090;
+            }
+        }
+    }
+}
