@@ -80,7 +80,7 @@
                         required: function(viewValue, modelValue, scope) {
                             return scope.to.label + ' is required';
                         },
-                        email: function(viewValue, modelValue, scope) {
+                        email: function() {
                             return "Your entered email is not valid!";
                         }
                     }

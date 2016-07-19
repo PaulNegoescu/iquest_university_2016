@@ -6,21 +6,21 @@
     .controller('DashController', DashController);
 
   function DashController(Session, $state) {
-    var self = this;
+    var vm = this;
 
-    this.shouldShowMenuContent = false;
+    vm.shouldShowMenuContent = false;
 
-    this.logout = function() {
+    vm.logout = function() {
       Session.logout().then(function() {
         $state.go('login');
       });
     };
 
-    this.user = Session.getStoredUser();
-    this.token = Session.getStoredToken();
+    vm.user = Session.getStoredUser();
+    vm.token = Session.getStoredToken();
 
-    this.toggleMenuVisibility = function() {
-      self.shouldShowMenuContent = !self.shouldShowMenuContent;
+    vm.toggleMenuVisibility = function() {
+      vm.shouldShowMenuContent = !vm.shouldShowMenuContent;
     };
   }
 })();

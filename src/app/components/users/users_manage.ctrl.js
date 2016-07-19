@@ -4,19 +4,19 @@
     angular.module('marathon').controller('ManageController', ManageController);
 
     function ManageController(Session, Users, $state) {
-        var self = this;
+        var vm = this;
 
-        this.reset = function() {
-            self.user = {};
+        vm.reset = function() {
+            vm.user = {};
         };
 
-        this.token = Session.getStoredToken();
+        vm.token = Session.getStoredToken();
 
-        this.manage = function() {
-            delete self.user.password;
-            delete self.user.controlPass;
+        vm.manage = function() {
+            delete vm.user.password;
+            delete vm.user.controlPass;
 
-            Users.update(this.token, self.user).then(function(resp, $log) {
+            Users.update(vm.token, vm.user).then(function(resp, $log) {
                 if(resp.status === 200 && resp.statusText === "OK") {
                     $state.go('users');
                 } else {
@@ -25,6 +25,6 @@
             });
         };
 
-        self.formFields = Users.registerFields;
+        vm.formFields = Users.registerFields;
     }
 })();

@@ -4,16 +4,16 @@
     angular.module('marathon').controller('RegisterController', ctrl);
 
     function ctrl(Users, $state) {
-        var self = this;
+        var vm = this;
 
-        this.reset = function() {
-            self.user = {};
+        vm.reset = function() {
+            vm.user = {};
         };
 
-        this.register = function() {
-            delete self.user.controlPass;
+        vm.register = function() {
+            delete vm.user.controlPass;
 
-            Users.create(self.user).then(function(resp, $log) {
+            Users.create(vm.user).then(function(resp, $log) {
                 if(resp.status === 200 && resp.statusText === "OK") {
                     $state.go('users');
                 } else {
@@ -22,6 +22,6 @@
             });
         };
 
-        self.formFields = Users.registerFields;
+        vm.formFields = Users.registerFields;
     }
 })();

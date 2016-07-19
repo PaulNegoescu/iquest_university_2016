@@ -3,36 +3,36 @@
 
     angular.module('marathon').service('Session', Session);
 
-    function Session(apiService, localStorageService, Users, crAcl) {
-        this.entity = 'session';
-        var self = this;
+    function Session(apiService, localStorageService, crAcl) {
+        var vm = this;
+        vm.entity = 'session';
 
-        this.login = function(username, password) {
+        vm.login = function(username, password) {
             crAcl.setRole("ROLE_USER");
-            return apiService.create(this.entity, {username:username, password:password})
-                    .then(storeUser(self.user));
+            return apiService.create(vm.entity, {username:username, password:password})
+                    .then(storeUser(vm.user));
         };
 
-        this.logout = function() {
+        vm.logout = function() {
             emptyLocalStorage();
             crAcl.setRole("ROLE_GUEST");
-            return apiService.delete(this.entity);
+            return apiService.delete(vm.entity);
         };
 
         function storeUser(user) {
             localStorageService.set('userObject', user.user);
         }
 
-        this.getStoredUser = function() {
+        vm.getStoredUser = function() {
             return localStorageService.get('userObject');
         };
 
-        this.start = function(token) {
+        vm.start = function(token) {
             localStorageService.set('token', token);
             crAcl.setRole("ROLE_USER");
         };
 
-        this.getStoredToken = function() {
+        vm.getStoredToken = function() {
             return localStorageService.get('token');
         };
 
@@ -40,7 +40,7 @@
             localStorageService.clearAll();
         }
 
-        this.loginFields = [
+        vm.loginFields = [
             {
                 key: 'username',
                 type: 'input',
