@@ -31,6 +31,39 @@
             "id": "2",
             "name":"admin"
         }
+    },
+    {
+        "id":"4",
+        "firstName":"Mitica",
+        "lastName":"Bugfix",
+        "username":"bugger",
+        "email":"bugger@gmail.com",
+        "role":{
+            "id": "1",
+            "name":"user"
+        }
+    },
+    {
+        "id":"6",
+        "firstName":"Relax",
+        "lastName":"Friday",
+        "username":"relaxing",
+        "email":"relax@gmail.com",
+        "role":{
+            "id": "1",
+            "name":"user"
+        }
+    },
+    {
+        "id":"8",
+        "firstName":"Arthas",
+        "lastName":"Menethil",
+        "username":"lichking",
+        "email":"arthas@gmail.com",
+        "role":{
+            "id": "1",
+            "name":"user"
+        }
     }
 ]
 

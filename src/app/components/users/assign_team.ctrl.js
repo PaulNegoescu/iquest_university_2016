@@ -21,7 +21,7 @@
                     }
                 }
             })
-        };
+        }
 
         function getMembers(owner) {
             Relations.getTeamMembers(owner.id).then(function(result) {
@@ -42,7 +42,7 @@
                     }
                 }
             }
-        };
+        }
 
         vm.submit = function(user, selectedList) {
             Relations.create(user, selectedList).then(function(resp){
