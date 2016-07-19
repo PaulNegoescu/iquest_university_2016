@@ -9,7 +9,7 @@
 
         this.login = function(username, password) {
             crAcl.setRole("ROLE_USER");
-            return apiService.create(this.entity, {identifier:identifier, password:password})
+            return apiService.create(this.entity, {username:username, password:password})
                     .then(function (response) {
                         storeUser(response.data.user);
                         start(response.data.token);
