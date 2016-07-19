@@ -19,10 +19,13 @@
         };
 
         vm.logout = function() {
-            emptyLocalStorage();
             crAcl.setRole("ROLE_GUEST");
-            apiService.removeToken();
-            return apiService.delete(vm.entity);
+            return apiService.delete(vm.entity).then(function(resp) {
+                if(resp.status == 200) {
+                    emptyLocalStorage();
+                    apiService.removeToken();
+                }
+            });
         };
 
         function storeUser(user) {
