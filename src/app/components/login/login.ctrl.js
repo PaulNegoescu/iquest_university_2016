@@ -9,7 +9,6 @@
         vm.login = function(){
             Session.login(vm.user.username, vm.user.password).then(function(response){
                 if(response.status == 200){
-                    Session.start(response.token);
                     $state.go('dash');
                 }
             });

@@ -10,12 +10,17 @@
         vm.login = function(username, password) {
             crAcl.setRole("ROLE_USER");
             return apiService.create(vm.entity, {username:username, password:password})
-                    .then(storeUser(vm.user));
+                    .then(function (response) {
+                        storeUser(response.data.user);
+                        start(response.data.token);
+                        apiService.setToken(response.data.token);
+                    });
         };
 
         vm.logout = function() {
             emptyLocalStorage();
             crAcl.setRole("ROLE_GUEST");
+            apiService.removeToken();
             return apiService.delete(vm.entity);
         };
 
@@ -27,10 +32,10 @@
             return localStorageService.get('userObject');
         };
 
-        vm.start = function(token) {
+        function start(token) {
             localStorageService.set('token', token);
             crAcl.setRole("ROLE_USER");
-        };
+        }
 
         vm.getStoredToken = function() {
             return localStorageService.get('token');

@@ -129,7 +129,10 @@
                 validators: {
                     passwordMatch: {
                         expression: function(viewValue, modelValue, scope){
-                            return modelValue === scope.model["password"];
+                            var value = viewValue || modelValue;
+                                if(value) {
+                                    return modelValue === scope.model["password"];
+                                }
                         },
                         message: function() {
                             return "Passwords don't match!"
@@ -139,6 +142,6 @@
             }
         ];
 
-        return model;
+    return model;
     }
 })();
