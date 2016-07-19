@@ -14,7 +14,7 @@
                         storeUser(response.data.user);
                         start(response.data.token);
                         apiService.setToken(response.data.token);
-                        $state.go('dash');
+                        $state.go('dash.landing');
                     });
         };
 
