@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('LoginController', LoginController);
 
-    function LoginController(Session, $state){
+    function LoginController(Session){
         var vm = this;
 
         vm.login = function(){

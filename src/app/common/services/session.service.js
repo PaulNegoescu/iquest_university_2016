@@ -5,7 +5,7 @@
 
     function Session(apiService, localStorageService, Users, crAcl, $state) {
         this.entity = 'session';
-        var self = this;
+        var vm = this;
 
         vm.login = function(username, password) {
             crAcl.setRole("ROLE_USER");
