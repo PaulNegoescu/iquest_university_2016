@@ -7,11 +7,7 @@
         var self = this;
 
         this.login = function(){
-            Session.login(self.user.username, self.user.password).then(function(response){
-                if(response.status == 200){
-                    $state.go('dash');
-                }
-            });
+            Session.login(self.user.username, self.user.password)
         };
 
         self.userFields = Session.loginFields;
