@@ -43,8 +43,9 @@
                 $log.info('Modal dismissed with Cancel at: ' + new Date());
             });
         }
-
+        var deleteUser;
         vm.openDeleteConfirmation = function(user, index) {
+            deleteUser = user;
             openConfirmation('Are you sure you want to delete user ' + user.firstName + ' ' + user.lastName + '?', index, removeUser);
         };
 
@@ -71,8 +72,14 @@
             }
         }
 
-        function removeUser(selectedUser) {
-            vm.users.splice(selectedUser, 1);
+        function removeUser() {
+            var id = deleteUser.id;
+            var index = vm.users.indexOf(deleteUser);
+            Users.delete(id).then(function(resp) {
+                if(resp.status == 200) {
+                    vm.users.splice(index, 1);
+                }
+            })
         }
 
         vm.search = function(row) {
