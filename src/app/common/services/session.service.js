@@ -3,9 +3,9 @@
 
     angular.module('marathon').service('Session', Session);
 
-    function Session(apiService, localStorageService, crAcl) {
+    function Session(apiService, localStorageService, Users, crAcl, $state) {
+        this.entity = 'session';
         var vm = this;
-        vm.entity = 'session';
 
         vm.login = function(username, password) {
             crAcl.setRole("ROLE_USER");
@@ -14,6 +14,7 @@
                         storeUser(response.data.user);
                         start(response.data.token);
                         apiService.setToken(response.data.token);
+                        $state.go('dash.landing');
                     });
         };
 

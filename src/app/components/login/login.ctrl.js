@@ -3,17 +3,13 @@
 
     angular.module('marathon').controller('LoginController', LoginController);
 
-    function LoginController(Session, $state){
+    function LoginController(Session){
         var vm = this;
 
         vm.login = function(){
-            Session.login(vm.user.username, vm.user.password).then(function(response){
-                if(response.status == 200){
-                    $state.go('dash');
-                }
-            });
+            Session.login(vm.user.username, vm.user.password);
         };
-        
+
         vm.userFields = Session.loginFields;
     }
 })();
