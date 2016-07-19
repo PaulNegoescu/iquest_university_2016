@@ -31,6 +31,7 @@
 		};
 
 		this.delete = function(endpoint) {
+            console.log(endpoint);
 			return $http.delete(url + endpoint);
 		};
 
