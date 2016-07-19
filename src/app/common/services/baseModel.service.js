@@ -21,17 +21,14 @@
             return apiService.read(this.entity +'/'+ id);
         };
 
-        this.update = function(token, data) {
-
+        this.update = function(data) {
             return apiService.update(this.entity, {
-                "token":token,
                 "user": data
             });
         };
 
-        this.delete = function() {
-
-            return apiService.delete(this.entity);
+        this.delete = function(id) {
+            return apiService.delete(this.entity + '/' + id);
         };
     }
 })();

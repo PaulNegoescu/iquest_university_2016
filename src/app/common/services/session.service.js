@@ -29,7 +29,7 @@
         };
 
         function storeUser(user) {
-            localStorageService.set('userObject', user.user);
+            localStorageService.set('userObject', user);
         }
 
         vm.getStoredUser = function() {
