@@ -1,17 +1,17 @@
 (function() {
 	'use strict';
 
-	angular.module('marathon').controller('LandingCtrl', LandingCtrl);
+	angular.module('marathon').controller('LandingController', LandingController);
 
-	function LandingCtrl(Relations) {
-		var self = this;
+	function LandingController(Relations) {
+		var vm = this;
 
 		Relations.getTeamMembers().then(function(result) {
-            self.members = result;
+            vm.members = result;
         });
 
         Relations.getPfms().then(function(result) {
-            self.owners = result;
+            vm.owners = result;
         });
 	}
 })();
