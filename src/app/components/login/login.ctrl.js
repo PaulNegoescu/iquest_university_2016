@@ -4,13 +4,13 @@
     angular.module('marathon').controller('LoginController', LoginController);
 
     function LoginController(Session, $state){
-        var self = this;
+        var vm = this;
 
-        this.login = function(){
-            Session.login(self.user.username, self.user.password)
+        vm.login = function(){
+            Session.login(vm.user.username, vm.user.password);
         };
 
-        self.userFields = Session.loginFields;
+        vm.userFields = Session.loginFields;
     }
 })();
 

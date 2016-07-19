@@ -4,15 +4,15 @@
     angular.module('marathon').controller('confirmModalController', confirmModalCtrl);
 
     function confirmModalCtrl($uibModalInstance, message, selectedItem){
-        var self = this;
+        var vm = this;
 
-        this.message = message;
+        vm.message = message;
 
-        this.ok = function () {
+        vm.ok = function () {
             $uibModalInstance.close(selectedItem);
         };
 
-        this.cancel = function () {
+        vm.cancel = function () {
             $uibModalInstance.dismiss();
         };
     }
