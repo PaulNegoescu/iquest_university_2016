@@ -9,7 +9,7 @@
             controller: 'RegisterController as vm'
          });
         $stateProvider.state('manage', {
-            url: '/manage',
+            url: '/manage/:selectedId',
             templateUrl: 'app/components/users/users_manage.view.html',
             controller: 'ManageController as vm'
         });
