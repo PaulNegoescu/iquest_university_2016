@@ -14,7 +14,7 @@
         function getUser(id) {
             Users.findById(id).then(function(resp) {
                 vm.user = resp;
-            });
+            })
         }
 
         vm.reset = function() {
@@ -33,9 +33,9 @@
                 } else {
                     $log.warn(resp);
                 }
-            });
+            })
         }
 
         vm.formFields = Users.registerFields;
-    };
+    }
 })();
