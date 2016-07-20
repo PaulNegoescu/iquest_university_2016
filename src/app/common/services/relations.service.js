@@ -6,31 +6,39 @@
     function Relations(apiService) {
 
         this.entity = 'relations';
-        var self = this;
 
-        this.create = function(user, userList) {
-            var memberListId = [];
+        this.create = function(ownerId, memberId, type) {
 
-            for(var i=0; i<userList.length; i++) {
-                memberListId.push(userList[i].id);
-            };
             return apiService.create(this.entity, {
-                "owner_id" : user.id,
-                "members_id" : memberListId
-            });
+                "owner_id" : ownerId,
+                "member_id" : memberId,
+                "type" : type
+            })
         };
 
-        this.getTeamMembers = function() {
+        this.getTeamMembers = function(ownerId, relType) {
+
             return apiService.read(
                 this.entity,
-                {view: "members"}
-            );
+                {owner_id: ownerId, type: relType}
+            )
         };
 
-        this.getPfms = function() {
+        this.getPfms = function(memberId, relType) {
+
             return apiService.read(
                 this.entity,
-                {view: "owners"}
+                {member_id: memberId, type: relType}
+            )
+        };
+
+        this.deleteMember = function(ownerId, memberId, type) {
+
+            return apiService.delete(this.entity, {
+                "owner_id": ownerId,
+                "member_id": memberId,
+                "type": type
+            }
             );
         }
     }
