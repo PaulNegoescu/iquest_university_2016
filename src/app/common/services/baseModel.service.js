@@ -22,9 +22,8 @@
         };
 
         this.update = function(data) {
-            return apiService.update(this.entity, {
-                "user": data
-            });
+
+            return apiService.update(this.entity, data);
         };
 
         this.delete = function(id) {
