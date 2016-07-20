@@ -7,11 +7,6 @@
         var vm = this;
         var relType = "pfm";
         vm.user = selectedItem;
-        vm.userList = [];
-        vm.selectedUsers = [];
-
-        getMembers(vm.user);
-        getUserList(vm.user);
 
         function getUserList(user) {
             Users.read().then(function(result) {
@@ -72,5 +67,6 @@
             fr.splice(index, 1);
             to.push(member);
         }
+        vm.reset();
     }
 })();
