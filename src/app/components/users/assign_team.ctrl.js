@@ -5,6 +5,7 @@
 
     function ctrl(Users, Relations, $uibModalInstance, $log, selectedItem) {
         var vm = this;
+        var relType = "pfm";
         vm.user = selectedItem;
         vm.userList = [];
         vm.selectedUsers = [];
@@ -24,7 +25,7 @@
         }
 
         function getMembers(owner) {
-            Relations.getTeamMembers(owner.id).then(function(result) {
+            Relations.getTeamMembers(owner.id, relType).then(function(result) {
                 for(var i=0; i<result.length; i++) {
                     if(result[i].username != owner.username) {
                         vm.selectedUsers.push(result[i]);
@@ -44,14 +45,6 @@
             }
         }
 
-        vm.submit = function(user, selectedList) {
-            Relations.create(user, selectedList).then(function(resp){
-                if(resp.status === 200) {
-                    alert('Saved');
-                }
-            })
-        };
-
         vm.reset = function() {
             vm.selectedUsers = [];
             getMembers(vm.user);
@@ -63,10 +56,17 @@
             $uibModalInstance.dismiss();
         };
 
-        vm.moveUser = function(user, fr, to) {
-            var index = fr.indexOf(user);
+        vm.moveUser = function(owner, member, fr, to) {
+            var index = fr.indexOf(member);
+
+            if(fr == vm.userList) {
+                Relations.create(owner.id, member.id, relType);
+            } else if(fr == vm.selectedUsers) {
+                Relations.deleteMember(owner.id, member.id, relType);
+
+            }
             fr.splice(index, 1);
-            to.push(user);
+            to.push(member);
         }
     }
 })();
