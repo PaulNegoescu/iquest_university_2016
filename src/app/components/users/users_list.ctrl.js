@@ -12,8 +12,8 @@
             vm.users = result;
         });
 
-        vm.manage = function() {
-            $state.go('manage');
+        vm.manage = function(user) {
+            $state.go('manage', {selectedId : user.id});
         };
 
         RolesService.read().then(function(result) {
