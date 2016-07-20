@@ -3,6 +3,10 @@
         overflow: hidden;
         height: 250px;
         overflow-y: auto;
+        .userBtnContainer{
+            display: inline;
+            padding: 8px 0 8px 0;
+        }
         .first-column,
         .second-column{
             background-color: #f5f5f5;
