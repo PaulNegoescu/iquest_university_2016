@@ -3,8 +3,19 @@
 
     angular.module('marathon').controller('ManageController', ManageController);
 
-    function ManageController(Session, Users, $state) {
+    function ManageController(Session, Users, $state, $stateParams) {
         var vm = this;
+        vm.user = {};
+
+        var userId = $stateParams.selectedId;
+
+        getUser(userId);
+
+        function getUser(id) {
+            Users.findById(id).then(function(resp) {
+                vm.user = resp;
+            });
+        }
 
         vm.reset = function() {
             vm.user = {};
@@ -23,8 +34,8 @@
                     $log.warn(resp);
                 }
             });
-        };
+        }
 
         vm.formFields = Users.registerFields;
-    }
+    };
 })();
