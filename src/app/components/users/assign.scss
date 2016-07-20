@@ -24,12 +24,14 @@
             .btn:active{
                 transform: translate(200px);
                 background-color: #449d44;
+                border: none;
             }
         }
         .second-column{
             .btn:active{
                 transform: translate(-200px);
                 background-color: #286090;
+                border: none;
             }
         }
     }

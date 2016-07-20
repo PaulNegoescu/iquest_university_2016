@@ -14,7 +14,7 @@
 
     <div class="assignModalWrap">
         <div class="first-column">
-            <h4>Drag team members ({{vm.userList.length}}) </h4>
+            <h4>Push team members ({{vm.userList.length}}) </h4>
             <div ng-repeat="user in vm.userList | filter: search">
                 <div class="userBtnContainer" ng-click="vm.moveUser(vm.user, user, vm.userList, vm.selectedUsers)">
                     <div class="btn btn-primary">

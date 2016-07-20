@@ -60,9 +60,13 @@
             var index = fr.indexOf(member);
 
             if(fr == vm.userList) {
-                Relations.create(owner.id, member.id, relType);
+                Relations.create(owner.id, member.id, relType).then(function(resp) {
+                    $log.warn(resp.status, resp.statusText);
+                });
             } else if(fr == vm.selectedUsers) {
-                Relations.deleteMember(owner.id, member.id, relType);
+                Relations.deleteMember(owner.id, member.id, relType).then(function(resp) {
+                    $log.warn(resp.status, resp.statusText);
+                });
 
             }
             fr.splice(index, 1);
