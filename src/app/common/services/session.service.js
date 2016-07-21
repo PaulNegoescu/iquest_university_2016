@@ -5,11 +5,10 @@
 
     function Session(apiService, localStorageService, Users, crAcl) {
         this.entity = 'session';
-        var vm = this;
 
-        vm.login = function(username, password) {
+        this.login = function(username, password) {
             crAcl.setRole("ROLE_USER");
-            return apiService.create(vm.entity, {username:username, password:password})
+            return apiService.create(this.entity, {username:username, password:password})
                     .then(function (response) {
                         storeUser(response.data.user);
                         start(response.data.token);
@@ -18,9 +17,9 @@
                     });
         };
 
-        vm.logout = function() {
+        this.logout = function() {
             crAcl.setRole("ROLE_GUEST");
-            return apiService.delete(vm.entity).then(function(resp) {
+            return apiService.delete(this.entity).then(function(resp) {
                 if(resp.status == 200) {
                     emptyLocalStorage();
                     apiService.removeToken();
@@ -32,7 +31,7 @@
             localStorageService.set('userObject', user);
         }
 
-        vm.getStoredUser = function() {
+        this.getStoredUser = function() {
             return localStorageService.get('userObject');
         };
 
@@ -41,7 +40,7 @@
             crAcl.setRole("ROLE_USER");
         }
 
-        vm.getStoredToken = function() {
+        this.getStoredToken = function() {
             return localStorageService.get('token');
         };
 
@@ -49,7 +48,7 @@
             localStorageService.clearAll();
         }
 
-        vm.loginFields = [
+        this.loginFields = [
             {
                 key: 'username',
                 type: 'input',
