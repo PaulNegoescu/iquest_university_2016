@@ -2,18 +2,48 @@
 
 <div class="row">
     <div class="container-item col-sm-5">
-	    <h3>PERFORMANCE MANAGER</h3>
-	    
-	    <ol>
-	      <li ng-repeat="owner in vm.owners">{{owner.firstName}} {{owner.lastName | uppercase}}</li>
-	    <ol>
+        <h3>Performance Managers</h3>
+
+        <ol>
+            <li ng-repeat="owner in vm.owners">{{owner.firstName}} {{owner.lastName | uppercase}}</li>
+        </ol>
     </div>
-     
+
     <div class="container-item col-sm-5 col-sm-offset-2">
-	    <h3>TEAM MEMBER</h3>
-	    
-	    <ol>
-	      <li ng-repeat="member in vm.members">{{member.firstName}} {{member.lastName | uppercase}}</li>
-	    <ol>
-	</div>
+        <h3>Team Members</h3>
+
+        <ol>
+            <li ng-repeat="member in vm.members">{{member.firstName}} {{member.lastName | uppercase}}</li>
+        </ol>
+    </div>
+</div>
+
+<h2>Objectives</h2>
+<div class="row">
+    <table class="table table-bordered table-hover table-condensed table-striped objectivesTable">
+        <thead class="tableHead">
+        <tr class="tableRow">
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tableRow" ng-repeat="objective in vm.objectives">
+            <td class="objectivesColumn col-md-3">{{objective.title}}</td>
+            <td class="descriptionColumn col-md-6">
+                <uib-accordion>
+                    <uib-accordion-group is-open="false">
+                        <uib-accordion-heading>
+                            {{objective.shortDescription}}
+                            <i class="glyphicon glyphicon-chevron-down"></i>
+                        </uib-accordion-heading>
+                        {{objective.description}}
+                    </uib-accordion-group>
+                </uib-accordion>
+            </td>
+            <td class="dueDateColumn col-md-3">{{objective.dueDate}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
