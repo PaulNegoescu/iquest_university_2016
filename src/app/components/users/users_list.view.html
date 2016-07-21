@@ -23,8 +23,6 @@
         <td>{{user.email}}</td>
         <td>
             <button ng-click="vm.openDeleteConfirmation(user, $index)" class="btn btn-danger" >Delete User</button>
-            <button ng-click="vm.openAdminConfirmation(user, $index, 'set')" class="btn btn-warning" ng-show="user.role.name !== 'admin'">Set ADMIN</button>
-            <button ng-click="vm.openAdminConfirmation(user, $index, 'unset')" class="btn btn-danger" ng-show="user.role.name === 'admin'">Delete ADMIN</button>
             <button ng-click="vm.openAssignView(user)" class="btn btn-success">Assign</button>
             <button ng-click="vm.manage(user)" class = "btn btn-warning">Edit Profile</button>
 

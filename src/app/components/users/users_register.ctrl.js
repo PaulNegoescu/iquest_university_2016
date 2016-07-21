@@ -3,8 +3,16 @@
 
     angular.module('marathon').controller('RegisterController', ctrl);
 
-    function ctrl(Users, $state) {
+    function ctrl(RolesService, Users, $state, $q) {
         var vm = this;
+        var deffered = $q.defer();
+
+        RolesService.getRoles().then(function(resp){
+            deffered.resolve(resp);
+            var data = deffered.promise.$$state.value;
+            Users.configureFields(data);
+            vm.formFields = Users.registerFields;
+        });
 
         vm.reset = function() {
             vm.user = {};
@@ -21,7 +29,5 @@
                 }
             });
         };
-
-        vm.formFields = Users.registerFields;
     }
 })();
