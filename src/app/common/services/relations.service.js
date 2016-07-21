@@ -16,30 +16,23 @@
             })
         };
 
-        this.getTeamMembers = function(ownerId, relType) {
+        this.getTeamMembers = function(ownerId) {
 
             return apiService.read(
-                this.entity,
-                {owner_id: ownerId, type: relType}
+                this.entity + '/' + 'owner', {id: ownerId}
             )
         };
 
-        this.getPfms = function(memberId, relType) {
+        this.getPfms = function(memberId) {
 
             return apiService.read(
-                this.entity,
-                {member_id: memberId, type: relType}
+                this.entity + '/' + 'member', {id: memberId}
             )
         };
 
-        this.deleteMember = function(ownerId, memberId, type) {
+        this.deleteMember = function(relId) {
 
-            return apiService.delete(this.entity, {
-                "owner_id": ownerId,
-                "member_id": memberId,
-                "type": type
-            }
-            );
+            return apiService.delete(this.entity + '/' + relId);
         }
     }
 })();
