@@ -1,0 +1,52 @@
+[
+    {
+        "id": "1",
+        "owner":{
+            "id":"1",
+            "firstName":"Ion",
+            "lastName":"Matei",
+            "username":"ionmatei",
+            "email":"ion@gmail.com",
+            "role":{
+                "id": "2",
+                "name":"admin"
+            }
+        },
+        "member":{
+            "id":"3",
+            "firstName":"Petre",
+            "lastName":"Lucian",
+            "username":"lucianpetre",
+            "email":"petre@gmail.com",
+            "role":{
+                "id": "2",
+                "name":"admin"
+            }
+        }
+    },
+    {
+        "id": "2",
+        "owner":{
+            "id":"1",
+            "firstName":"Relax",
+            "lastName":"Friday",
+            "username":"relaxing",
+            "email":"relax@gmail.com",
+            "role":{
+                "id": "1",
+                "name":"user"
+            }
+        },
+        "member":{
+            "id":"4",
+            "firstName":"Mitica",
+            "lastName":"Bugfix",
+            "username":"bugger",
+            "email":"bugger@gmail.com",
+            "role":{
+                "id": "1",
+                "name":"user"
+            }
+        }
+    }
+]
