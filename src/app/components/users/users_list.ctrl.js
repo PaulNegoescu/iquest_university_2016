@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('usersListController', usersListCtrl);
 
-    function usersListCtrl(ConfirmationModal, Users, RolesService, $log, $state) {
+    function usersListCtrl(ConfirmationModal, Users, RolesService, $log, $state, $uibModal) {
         var vm = this;
 
         vm.searchUser = '';
@@ -19,6 +19,19 @@
         RolesService.read().then(function(result) {
             vm.roles = result;
         });
+
+        vm.openAssignView = function(user){
+            $uibModal.open({
+                templateUrl: 'app/components/users/assign_team.view.html',
+                controller: 'assignTeamController as vm',
+                size: 'md',
+                resolve: {
+                    selectedItem: function(){
+                        return user;
+                    }
+                }
+            });
+        };
 
         function openConfirmation(message, index, cb) {
             ConfirmationModal.openModal(message, index).result.then(function (selectedItem) {
