@@ -16,7 +16,7 @@
         <div class="first-column">
             <h4>Push team members ({{vm.userList.length}}) </h4>
             <div ng-repeat="user in vm.userList | filter: search">
-                <div class="userBtnContainer" ng-click="vm.moveUser(vm.user, user, vm.userList, vm.selectedUsers)">
+                <div class="userBtnContainer" ng-click="vm.addUser(vm.user, user)">
                     <div class="btn btn-primary">
                         {{user.firstName}} {{user.lastName}}
                     </div>
@@ -26,9 +26,9 @@
         <div class="second-column">
             <h4>Drop team members ({{vm.selectedUsers.length}})</h4>
             <div ng-repeat="user in vm.selectedUsers">
-                <div class="userBtnContainer" ng-click="vm.moveUser(vm.user, user, vm.selectedUsers, vm.userList)">
+                <div class="userBtnContainer" ng-click="vm.removeUser(vm.user, user)">
                     <div class="btn btn-success">
-                         {{user.firstName}} {{user.lastName}}
+                         {{user.member.firstName}} {{user.member.lastName}}
                     </div>
                 </div>
             </div>

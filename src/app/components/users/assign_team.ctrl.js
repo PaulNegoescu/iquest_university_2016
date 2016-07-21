@@ -20,10 +20,14 @@
         }
 
         function getMembers(owner) {
-            Relations.getTeamMembers(owner.id, relType).then(function(result) {
+            Relations.getTeamMembers(owner.id).then(function(result) {
                 for(var i=0; i<result.length; i++) {
-                    if(result[i].username != owner.username) {
-                        vm.selectedUsers.push(result[i]);
+                    if(result[i].owner.id == owner.id) {
+                        var obj = {
+                            id: result[i].id,
+                            member: result[i].member
+                        }
+                        vm.selectedUsers.push(obj);
                     }
                 }
             })
@@ -32,7 +36,7 @@
         function filterUserList() {
              for(var i=0; i<vm.userList.length; i++) {
                 for(var j=0; j<vm.selectedUsers.length; j++) {
-                    if(angular.equals(vm.userList[i], vm.selectedUsers[j])) {
+                    if(angular.equals(vm.userList[i], vm.selectedUsers[j].member)) {
                         var index = vm.userList.indexOf(vm.userList[i]);
                         vm.userList.splice(index,1);
                     }
@@ -51,21 +55,23 @@
             $uibModalInstance.dismiss();
         };
 
-        vm.moveUser = function(owner, member, fr, to) {
-            var index = fr.indexOf(member);
+        vm.addUser = function(owner, member) {
+            var index = vm.userList.indexOf(member);
+            Relations.create(owner.id, member.id, relType).then(function(resp) {
+                $log.warn(resp.status, resp.statusText);
+                vm.userList.splice(index, 1);
+                vm.selectedUsers.push(member);
+                vm.reset();
+            });
+        }
 
-            if(fr == vm.userList) {
-                Relations.create(owner.id, member.id, relType).then(function(resp) {
-                    $log.warn(resp.status, resp.statusText);
-                });
-            } else if(fr == vm.selectedUsers) {
-                Relations.deleteMember(owner.id, member.id, relType).then(function(resp) {
-                    $log.warn(resp.status, resp.statusText);
-                });
-
-            }
-            fr.splice(index, 1);
-            to.push(member);
+        vm.removeUser = function(owner, memberObj) {
+            var index = vm.selectedUsers.indexOf(memberObj.member);
+            Relations.deleteMember(memberObj.id).then(function(resp) {
+                $log.warn(resp.status, resp.statusText);
+                vm.selectedUsers.splice(index, 1);
+                vm.userList.push(memberObj.member);
+            })
         }
         vm.reset();
     }
