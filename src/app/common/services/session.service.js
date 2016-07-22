@@ -19,7 +19,8 @@
 
         this.logout = function() {
             crAcl.setRole("ROLE_GUEST");
-            return apiService.delete(this.entity).then(function(resp) {
+            var token = this.getStoredToken();
+            return apiService.delete(this.entity + '/' + token).then(function(resp) {
                 if(resp.status == 200) {
                     emptyLocalStorage();
                     apiService.removeToken();
