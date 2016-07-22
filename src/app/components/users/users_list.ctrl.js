@@ -16,10 +16,6 @@
             $state.go('manage', {selectedId : user.id});
         };
 
-        RolesService.read().then(function(result) {
-            vm.roles = result;
-        });
-
         vm.openAssignView = function(user){
             $uibModal.open({
                 templateUrl: 'app/components/users/assign_team.view.html',
