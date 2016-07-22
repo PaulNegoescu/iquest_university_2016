@@ -10,8 +10,8 @@
         this.create = function(ownerId, memberId, type) {
 
             return apiService.create(this.entity, {
-                "owner_id" : ownerId,
-                "member_id" : memberId,
+                "ownerId" : ownerId,
+                "memberId" : memberId,
                 "type" : type
             })
         };

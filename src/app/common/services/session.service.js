@@ -10,9 +10,9 @@
             crAcl.setRole("ROLE_USER");
             return apiService.create(this.entity, {username:username, password:password})
                     .then(function (response) {
-                        storeUser(response.data.user);
-                        start(response.data.token);
-                        apiService.setToken(response.data.token);
+                        storeUser(response.user);
+                        start(response.token);
+                        apiService.setToken(response.token);
                         return response;
                     });
         };
