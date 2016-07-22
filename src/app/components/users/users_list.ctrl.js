@@ -3,10 +3,11 @@
 
     angular.module('marathon').controller('usersListController', usersListCtrl);
 
-    function usersListCtrl(ConfirmationModal, Users, RolesService, $log, $state, $uibModal) {
+    function usersListCtrl(ConfirmationModal, Users, RolesService, $log, $state, $timeout) {
         var vm = this;
 
         vm.searchUser = '';
+        vm.successMessage = '';
 
         Users.read().then(function(result) {
             vm.users = result;
@@ -20,19 +21,6 @@
             vm.roles = result;
         });
 
-        vm.openAssignView = function(user){
-            $uibModal.open({
-                templateUrl: 'app/components/users/assign_team.view.html',
-                controller: 'assignTeamController as vm',
-                size: 'md',
-                resolve: {
-                    selectedItem: function(){
-                        return user;
-                    }
-                }
-            });
-        };
-
         function openConfirmation(message, index, cb) {
             ConfirmationModal.openModal(message, index).result.then(function (selectedItem) {
                 if(angular.isFunction(cb)) {
@@ -43,7 +31,9 @@
                 $log.info('Modal dismissed with Cancel at: ' + new Date());
             });
         }
+
         var deleteUser;
+
         vm.openDeleteConfirmation = function(user, index) {
             deleteUser = user;
             openConfirmation('Are you sure you want to delete user ' + user.firstName + ' ' + user.lastName + '?', index, removeUser);
@@ -75,11 +65,17 @@
         function removeUser() {
             var id = deleteUser.id;
             var index = vm.users.indexOf(deleteUser);
-            Users.delete(id).then(function(resp) {
-                if(resp.status == 200) {
-                    vm.users.splice(index, 1);
+            Users.delete(id).then(function() {
+                vm.users.splice(index, 1);
+                vm.successMessage = "The user has been removed successfully!";
+                $timeout(function() {
+                    vm.hidden = true;
+                }, 5000);
+            }, function(err) {
+                if (err.message) {
+                    vm.errorMessage = err.message;
                 }
-            })
+            });
         }
 
         vm.search = function(row) {
@@ -98,4 +94,3 @@
         };
     }
 })();
-

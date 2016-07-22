@@ -1,0 +1,5 @@
+.modal--danger .modal-header {
+    border-radius: $border-radius-base $border-radius-base 0 0;
+    background-color: $state-danger-bg;
+    color: $state-danger-text;
+}

@@ -1,9 +1,9 @@
 (function() {
 	'use strict';
 
-	angular.module('marathon').controller('LandingCtrl', LandingCtrl);
+	angular.module('marathon').controller('LandingController', LandingController);
 
-	function LandingCtrl(Relations, Objectives) {
+	function LandingController(Relations, Objectives) {
 		var vm = this;
 
 		Relations.getTeamMembers().then(function(result) {
