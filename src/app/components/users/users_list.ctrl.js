@@ -3,10 +3,11 @@
 
     angular.module('marathon').controller('usersListController', usersListCtrl);
 
-    function usersListCtrl(ConfirmationModal, Users, $log, $state, $uibModal) {
+    function usersListCtrl(ConfirmationModal, Users, $log, $state, $uibModal, $timeout) {
         var vm = this;
 
         vm.searchUser = '';
+        vm.successMessage = '';
 
         Users.read().then(function(result) {
             vm.users = result;
@@ -50,9 +51,15 @@
         function removeUser() {
             var id = deleteUser.id;
             var index = vm.users.indexOf(deleteUser);
-            Users.delete(id).then(function(resp) {
-                if(resp.status == 200) {
-                    vm.users.splice(index, 1);
+            Users.delete(id).then(function() {
+                vm.users.splice(index, 1);
+                vm.successMessage = "The user has been removed successfully!";
+                $timeout(function() {
+                    vm.hidden = true;
+                }, 5000);
+            }, function(err) {
+                if (err.message) {
+                    vm.errorMessage = err.message;
                 }
             });
         }
@@ -73,4 +80,3 @@
         };
     }
 })();
-

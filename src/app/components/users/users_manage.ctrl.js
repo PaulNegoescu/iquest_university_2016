@@ -14,7 +14,7 @@
         function getUser(id) {
             Users.findById(id).then(function(resp) {
                 vm.user = resp;
-            })
+            });
         }
 
         vm.reset = function() {
@@ -27,13 +27,9 @@
             delete vm.user.password;
             delete vm.user.controlPass;
 
-            Users.update(vm.user).then(function(resp, $log) {
-                if(resp.status === 200 && resp.statusText === "OK") {
-                    $state.go('users');
-                } else {
-                    $log.warn(resp);
-                }
-            })
+            Users.update(vm.user).then(function() {
+                $state.go('users');
+            });
         }
 
         vm.formFields = Users.registerFields;

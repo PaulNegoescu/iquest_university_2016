@@ -7,6 +7,10 @@
     <input type="text" ng-model = "vm.searchUser">
 </p>
 
+<div class="alert alert-danger" role="alert" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
+
+<div class="alert alert-success" role="alert" ng-if="vm.successMessage" ng-hide="vm.hidden">{{vm.successMessage}}</div>
+
 <table class="table table-bordered table-striped table-hover">
     <thead>
     <tr>
@@ -26,7 +30,6 @@
 
             <button ng-click="vm.openAssignView(user)" class="btn btn-success">Assign</button>
             <button ng-click="vm.manage(user)" class = "btn btn-warning">Edit Profile</button>
-
         </td>
     </tr>
     </tbody>
