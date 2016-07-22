@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('marathon').value('config_api', '/api');
+	angular.module('marathon').value('config_api', '/backend');
 
 })();
 
