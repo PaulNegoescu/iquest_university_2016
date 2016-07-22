@@ -3,7 +3,7 @@
 
 	angular.module('marathon').service('RolesService', RolesService);
 
-	function RolesService(apiService, $q) {
+	function RolesService(apiService) {
 		this.entity = 'roles';
 
 		this.read = function() {
@@ -12,15 +12,14 @@
 
         this.getRoles = function() {
             var roles = [];
-            var deffered = $q.defer();
 
             if(Object.keys(roles).length == 0) {
                 return apiService.read(this.entity).then(function(resp) {
-                    deffered.resolve(resp);
-                    roles = deffered.promise;
+                    roles = resp;
                     return roles;
                 })
             }
+            return roles;
         }
 	}
 })();

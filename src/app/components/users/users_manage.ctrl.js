@@ -3,15 +3,13 @@
 
     angular.module('marathon').controller('ManageController', ManageController);
 
-    function ManageController(Session, RolesService, Users, $state, $q, $stateParams) {
+    function ManageController(Session, RolesService, Users, $state, $stateParams) {
         var vm = this;
-        var deffered = $q.defer();
         vm.user = {};
 
          RolesService.getRoles().then(function(resp){
-            deffered.resolve(resp);
-            var data = deffered.promise.$$state.value;
-            Users.configureFields(data);
+
+            Users.configureFields(resp);
             vm.formFields = Users.registerFields;
         });
 
