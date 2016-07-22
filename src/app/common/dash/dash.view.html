@@ -1,13 +1,29 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <button class="btn btn-default" type="button" ng-click="vm.toggleMenuVisibility()">
-    Hello, {{vm.user.firstName}}
-    <span class="caret"></span>
-  </button>
+<nav class="navbar navbar-default navbarMenu" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand logoImage" ui-sref="dash.landing">
+            <img ng-src="app/common/dash/images/logo.png">
+        </a>
+    </div>
 
-  <div ng-show="vm.shouldShowMenuContent" class="dropdown">
-      <div>{{vm.user.firstName}} {{vm.user.lastName | uppercase}}</div>
-      <button ng-click="vm.logout()">Logout</button>
-  </div>
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="dash.landing">Home</a></li>
+            <li><a ui-sref="dash.users">Users</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="" ng-click="vm.toggleMenuVisibility()">Hello, {{vm.user.firstName}}
+                    <span class="caret"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
-<div ui-view></div>
+<div ng-show="vm.shouldShowMenuContent" class="dropdownActions">
+    <div>{{vm.user.firstName}} {{vm.user.lastName | uppercase}}</div>
+    <button class="btn btn-primary" ng-click="vm.logout()">Logout</button>
+</div>
+
+<div ui-view class="dashContainer"></div>
