@@ -96,6 +96,13 @@
                         options: roles,
                         valueProp: 'id',
                         labelProp: 'name'
+                    },
+                    validation: {
+                        messages: {
+                            required: function(viewValue, modelValue, scope) {
+                                return scope.to.label + ' is required';
+                            }
+                        }
                     }
                 },
                 {
@@ -109,6 +116,14 @@
                         maxlength: 100,
                         placeholder: 'Password must be at least 6 characters long'
                     },
+                    validators: {
+                        password: function(viewValue, modelValue) {
+                            var val = viewValue || modelValue;
+                            if(val) {
+                                return validatePass(val);
+                            }
+                        }
+                    },
                     validation: {
                         messages: {
                             required: function(viewValue, modelValue, scope) {
@@ -116,6 +131,9 @@
                             },
                             minlength: function(viewValue, modelValue, scope) {
                                 return 'Password must be ' + scope.to.minlength + ' characters long';
+                            },
+                            password: function () {
+                                return 'Password must contain A-z, 0-9';
                             }
                         }
                     }
@@ -152,7 +170,11 @@
                         }
                     }
                 }
-            ]
+            ];
+
+            function validatePass(val) {
+                return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/.test(val);
+            }
         }
 
     return model;
