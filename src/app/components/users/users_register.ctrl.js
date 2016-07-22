@@ -21,12 +21,8 @@
         vm.register = function() {
             delete vm.user.controlPass;
 
-            Users.create(vm.user).then(function(resp, $log) {
-                if(resp.status === 200 && resp.statusText === "OK") {
-                    $state.go('users');
-                } else {
-                    $log.warn(resp);
-                }
+            Users.create(vm.user).then(function() {
+                $state.go('users');
             });
         };
     }

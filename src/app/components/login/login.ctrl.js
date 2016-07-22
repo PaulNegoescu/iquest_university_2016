@@ -6,12 +6,16 @@
     function LoginController(Session, $state){
         var vm = this;
 
+        vm.errorMessage = '';
+
         vm.login = function(){
-            Session.login(vm.user.username, vm.user.password).then(function(resp) {
-                if(resp.status == 200) {
-                    $state.go('dash');
+            Session.login(vm.user.username, vm.user.password).then(function() {
+                $state.go('dash');
+            }, function(err) {
+                if (err.message) {
+                    vm.errorMessage = err.message;
                 }
-            })
+            });
         };
 
         vm.userFields = Session.loginFields;
