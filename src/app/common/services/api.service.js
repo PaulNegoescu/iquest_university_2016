@@ -30,8 +30,8 @@
 			return $http.put(url + endpoint, data);
 		};
 
-		this.delete = function(endpoint, data) {
-			return $http.delete(url + endpoint, data);
+		this.delete = function(endpoint) {
+			return $http.delete(url + endpoint);
 		};
 
 		function extractData(response) {
