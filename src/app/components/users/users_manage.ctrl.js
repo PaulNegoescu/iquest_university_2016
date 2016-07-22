@@ -3,15 +3,13 @@
 
     angular.module('marathon').controller('ManageController', ManageController);
 
-    function ManageController(Session, RolesService, Users, $state, $q, $stateParams) {
+    function ManageController(Session, RolesService, Users, $state, $stateParams) {
         var vm = this;
-        var deffered = $q.defer();
         vm.user = {};
 
          RolesService.getRoles().then(function(resp){
-            deffered.resolve(resp);
-            var data = deffered.promise.$$state.value;
-            Users.configureFields(data);
+
+            Users.configureFields(resp);
             vm.formFields = Users.registerFields;
         });
 
@@ -22,7 +20,7 @@
         function getUser(id) {
             Users.findById(id).then(function(resp) {
                 vm.user = resp;
-            })
+            });
         }
         vm.reset = function() {
             vm.user = {};
@@ -34,13 +32,9 @@
             delete vm.user.password;
             delete vm.user.controlPass;
 
-            Users.update(vm.user).then(function(resp, $log) {
-                if(resp.status === 200 && resp.statusText === "OK") {
-                    $state.go('users');
-                } else {
-                    $log.warn(resp);
-                }
-            })
+            Users.update(vm.user).then(function() {
+                $state.go('users');
+            });
         }
     }
 })();

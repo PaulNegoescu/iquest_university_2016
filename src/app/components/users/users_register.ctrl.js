@@ -3,14 +3,12 @@
 
     angular.module('marathon').controller('RegisterController', ctrl);
 
-    function ctrl(RolesService, Users, $state, $q) {
+    function ctrl(RolesService, Users, $state) {
         var vm = this;
-        var deffered = $q.defer();
 
         RolesService.getRoles().then(function(resp){
-            deffered.resolve(resp);
-            var data = deffered.promise.$$state.value;
-            Users.configureFields(data);
+
+            Users.configureFields(resp);
             vm.formFields = Users.registerFields;
         });
 
@@ -21,12 +19,8 @@
         vm.register = function() {
             delete vm.user.controlPass;
 
-            Users.create(vm.user).then(function(resp, $log) {
-                if(resp.status === 200 && resp.statusText === "OK") {
-                    $state.go('users');
-                } else {
-                    $log.warn(resp);
-                }
+            Users.create(vm.user).then(function() {
+                $state.go('users');
             });
         };
     }

@@ -4,9 +4,7 @@
 	angular.module('marathon').service('ConfirmationModal', ConfirmationModal);
 
 	function ConfirmationModal($uibModal) {
-		var vm = this;
-
-		vm.openModal = function(message, index) {
+		this.openModal = function(message, index) {
             var modalInstance = $uibModal.open({
                 templateUrl: 'app/common/confirm_modal/confirm_modal.view.html',
                 controller: 'confirmModalController as vm',
@@ -19,7 +17,7 @@
                         return index;
                     }
                 }
-            }); 
+            });
             return modalInstance;
         }
 	}
