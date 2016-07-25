@@ -16,7 +16,7 @@
                         filterUserList();
                     }
                 }
-            })
+            });
         }
 
         function getMembers(owner) {
@@ -30,7 +30,7 @@
                         vm.selectedUsers.push(obj);
                     }
                 }
-            })
+            });
         }
 
         function filterUserList() {
@@ -71,7 +71,7 @@
                 $log.warn(resp.status, resp.statusText);
                 vm.selectedUsers.splice(index, 1);
                 vm.userList.push(memberObj.member);
-            })
+            });
         }
         vm.reset();
     }

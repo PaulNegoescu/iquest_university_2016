@@ -1,0 +1,69 @@
+<h3>Objectives for Team Member</h3>
+
+<div class="objectives_wrapper">
+    <button class="btn btn-primary add_objective" ng-click="vm.addObjective()"> Add New </button>
+
+    <div ng-repeat="newObj in vm.newObjective" class="add_objective">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> Title </th>
+                    <th> Details </th>
+                    <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-model="vm.newObjective">
+                    <td><input type="text" ng-model="title"/></td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td> Description: </td>
+                                <td> <textarea rows="1" cols="40" ng-model="description"></textarea> </td>
+                            </tr>
+                            <tr>
+                                <td> On target: </td>
+                                <td> <textarea rows="1" cols="40" ng-model="on"></textarea> </td>
+                            </tr>
+                            <tr>
+                                <td> Overachieved: </td>
+                                <td> <textarea rows="1" cols="40" ng-model="over"></textarea> </td>
+                            </tr>
+                            <tr>
+                                <td> Underachieved: </td>
+                                <td> <textarea rows="1" cols="40" ng-model="under"></textarea> </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="vm.add(title, description, on, over, under)"> Add </button>
+                        <button class="btn btn-danger" ng-click="vm.removeObjective()"> X </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <table class="table table-bordered">
+        <caption> Assigned Objectives </caption>
+        <thead class="obj_table_head">
+            <tr>
+                <th> Title </th>
+                <th> Description </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="objective in vm.objectives">
+                <td editable-text="objective.title"> {{ objective.title }} </td>
+                <td editable-textarea="objective.description" e-cols="40"> {{ objective.description }} </td>
+                <td>
+                    <button class="btn btn-success"> Save </button>
+                    <button class="btn btn-danger"> Close </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
