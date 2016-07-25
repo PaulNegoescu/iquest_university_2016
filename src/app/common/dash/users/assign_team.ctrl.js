@@ -46,8 +46,8 @@
 
         vm.reset = function() {
             vm.selectedUsers = [];
-            getMembers(vm.user);
             vm.userList = [];
+            getMembers(vm.user);
             getUserList(vm.user);
         };
 
