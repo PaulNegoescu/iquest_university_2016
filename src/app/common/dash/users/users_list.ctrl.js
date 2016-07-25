@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('usersListController', usersListCtrl);
 
-    function usersListCtrl(ConfirmationModal, Users, $log, $state, $uibModal, $timeout) {
+    function usersListCtrl(ConfirmationModal, Users, RolesService, $log, $state, $timeout, $uibModal) {
         var vm = this;
 
         vm.searchUser = '';

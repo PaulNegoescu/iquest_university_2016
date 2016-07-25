@@ -3,9 +3,15 @@
 
     angular.module('marathon').controller('ManageController', ManageController);
 
-    function ManageController(Session, Users, $state, $stateParams) {
+    function ManageController(Session, RolesService, Users, $state, $stateParams) {
         var vm = this;
         vm.user = {};
+
+         RolesService.getRoles().then(function(resp){
+
+            Users.configureFields(resp);
+            vm.formFields = Users.registerFields;
+        });
 
         var userId = $stateParams.selectedId;
 
@@ -16,7 +22,6 @@
                 vm.user = resp;
             })
         }
-
         vm.reset = function() {
             vm.user = {};
         };
