@@ -14,12 +14,12 @@
         });
 
         vm.manage = function(user) {
-            $state.go('manage', {selectedId : user.id});
+            $state.go('dash.manage', {selectedId : user.id});
         };
 
         vm.openAssignView = function(user){
             $uibModal.open({
-                templateUrl: 'app/components/users/assign_team.view.html',
+                templateUrl: 'app/common/dash/users/assign_team.view.html',
                 controller: 'assignTeamController as vm',
                 size: 'md',
                 resolve: {
@@ -76,7 +76,7 @@
         };
 
         vm.register = function(){
-            $state.go('register');
+            $state.go('dash.register');
         };
     }
 })();

@@ -26,7 +26,7 @@
                         var obj = {
                             id: result[i].id,
                             member: result[i].member
-                        }
+                        };
                         vm.selectedUsers.push(obj);
                     }
                 }
@@ -63,7 +63,7 @@
                 vm.selectedUsers.push(member);
                 vm.reset();
             });
-        }
+        };
 
         vm.removeUser = function(owner, memberObj) {
             var index = vm.selectedUsers.indexOf(memberObj.member);
@@ -72,7 +72,7 @@
                 vm.selectedUsers.splice(index, 1);
                 vm.userList.push(memberObj.member);
             })
-        }
+        };
         vm.reset();
     }
 })();
