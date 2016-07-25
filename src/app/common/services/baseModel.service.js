@@ -29,5 +29,15 @@
         this.delete = function(id) {
             return apiService.delete(this.entity + '/' + id);
         };
+
+        this.readPfm = function(id, type) {
+
+            return apiService.read(this.entity + '/' + id + '/owners', type);
+        };
+
+        this.readTm = function(id, type) {
+
+           return apiService.read(this.entity + '/' + id + '/members', type);
+        };
     }
 })();
