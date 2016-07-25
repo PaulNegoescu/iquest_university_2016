@@ -3,10 +3,24 @@
 
     angular.module('marathon').factory('Users', Users);
 
-    function Users(BaseModel, $timeout) {
+    function Users(BaseModel, $timeout, apiService) {
 
         var model = Object.create(BaseModel);
         model.entity = 'users';
+
+        model.setUser = function(param) {
+            model.userId = param.id;
+        }
+
+        model.readPfm = function(type) {
+
+            return apiService.read(this.entity + '/' + model.userId + '/owners', type);
+        };
+
+        model.readTm = function(type) {
+
+           return apiService.read(this.entity + '/' + model.userId + '/members', type);
+        };
 
         model.configureFields = function(roles) {
             model.registerFields = [

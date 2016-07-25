@@ -8,13 +8,14 @@
         var type = "pfm";
 
         var user = Session.getStoredUser();
-        var userId = user.id;
 
-        Users.readPfm(userId, type).then(function(resp) {
+        Users.setUser(user);
+
+        Users.readPfm(type).then(function(resp) {
             vm.owners = resp;
         });
 
-        Users.readTm(userId, type).then(function(resp) {
+        Users.readTm(type).then(function(resp) {
             vm.members = resp;
         });
 
