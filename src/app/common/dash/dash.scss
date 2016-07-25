@@ -1,0 +1,45 @@
+.dropdownActions {
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
+    padding: 15px;
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    margin-right: 40px;
+}
+
+.navbar.navbar-default {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: #eeeeee;
+    padding: 0 40px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown:hover{
+    cursor: pointer;
+}
+
+.navbarMenu {
+    padding: 0;
+}
+
+.container-fluid.ng-scope {
+    padding: 0;
+    margin: 0;
+}
+
+.logoImage img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+a.navbar-brand.logoImage {
+    padding: 0;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
