@@ -7,7 +7,6 @@
 	    var vm = this;
         var user = Session.getStoredUser();
         var userId = user.id;
-        console.log('dsdasdasda  ' + userId);
 
         var objType = {
             type: 'pfm'
