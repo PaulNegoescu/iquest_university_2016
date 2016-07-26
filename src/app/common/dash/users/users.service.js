@@ -19,7 +19,7 @@
 
         model.readTm = function(type) {
 
-           return apiService.read(this.entity + '/' + model.userId + '/members', type);
+            return apiService.read(this.entity + '/' + model.userId + '/members', type);
         };
 
         model.configureFields = function(roles) {

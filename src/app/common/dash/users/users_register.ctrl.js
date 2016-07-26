@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('RegisterController', ctrl);
 
-    function ctrl(RolesService, Users, $state) {
+    function ctrl(RolesService, Users, $state, $log) {
         var vm = this;
 
         RolesService.getRoles().then(function(resp){
@@ -18,8 +18,34 @@
 
         vm.register = function() {
             delete vm.user.controlPass;
+            var obj = {};
+            if(vm.user.role == 1) {
+                obj = {
+                    firstName: vm.user.firstName,
+                    lastName: vm.user.lastName,
+                    username: vm.user.username,
+                    email: vm.user.email,
+                    password: vm.user.password,
+                    role: {
+                        id: vm.user.role,
+                        name: 'user'
+                    }
+                }
+            } else if (vm.user.role == 2) {
+                obj = {
+                    firstName: vm.user.firstName,
+                    lastName: vm.user.lastName,
+                    username: vm.user.username,
+                    email: vm.user.email,
+                    password: vm.user.password,
+                    role: {
+                        id: vm.user.role,
+                        name: 'admin'
+                    }
+                }
+            }
 
-            Users.create(vm.user).then(function(resp, $log) {
+            Users.create(obj).then(function(resp) {
                 if(resp.status == 200) {
                     $state.go('dash.users');
                 } else {
