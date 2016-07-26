@@ -104,12 +104,13 @@
                 {
                     key: "role",
                     type: "select",
+                    defaultValue: roles.name,
                     templateOptions: {
                         label: "Role",
                         required: true,
                         options: roles,
-                        valueProp: 'id',
-                        labelProp: 'name'
+                        valueProp: roles.id,
+                        labelProp: roles.name
                     },
                     validation: {
                         messages: {
