@@ -61,7 +61,7 @@
                 }
             }
 
-            Users.update(obj).then(function(resp) {
+            Users.update(obj).then(function() {
                     $state.go('dash.users');
             });
         };
