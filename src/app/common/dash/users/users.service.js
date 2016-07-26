@@ -113,8 +113,8 @@
                         label: "Role",
                         required: true,
                         options: roles,
-                        valueProp: roles.id,
-                        labelProp: roles.name
+                        valueProp: "id",
+                        labelProp: "name"
                     },
                     validation: {
                         messages: {
