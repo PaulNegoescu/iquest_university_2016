@@ -1,0 +1,35 @@
+[
+    {
+        "id":"1",
+        "firstName":"Ion",
+        "lastName":"Matei",
+        "username":"ionmatei",
+        "email":"ion@gmail.com",
+        "role":{
+            "id": "2",
+            "name":"admin"
+        }
+    },
+    {
+        "id":"2",
+        "firstName":"Chirila",
+        "lastName":"Tudor",
+        "username":"tudorache",
+        "email":"tudor@gmail.com",
+        "role":{
+            "id": "1",
+            "name":"user"
+        }
+    },
+    {
+        "id":"4",
+        "firstName":"Mitica",
+        "lastName":"Bugfix",
+        "username":"bugger",
+        "email":"bugger@gmail.com",
+        "role":{
+            "id": "1",
+            "name":"user"
+        }
+    }
+]

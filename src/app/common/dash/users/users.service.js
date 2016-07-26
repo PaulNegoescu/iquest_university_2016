@@ -8,6 +8,20 @@
         var model = Object.create(BaseModel);
         model.entity = 'users';
 
+        model.setUser = function(param) {
+            model.userId = param.id;
+        }
+
+        model.readPfm = function(type) {
+
+            return this.read(this.entity + '/' + model.userId + '/owners', type);
+        };
+
+        model.readTm = function(type) {
+
+           return this.read(this.entity + '/' + model.userId + '/members', type);
+        };
+
         model.configureFields = function(roles) {
             model.registerFields = [
                 {
