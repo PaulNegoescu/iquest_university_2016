@@ -46,7 +46,7 @@
             }
 
             Users.create(obj).then(function(resp, $log) {
-                if(resp.status === 200) {
+                if(resp.status == 200) {
                     $state.go('dash.users');
                 } else {
                     $log.warn(resp);
