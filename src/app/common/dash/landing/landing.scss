@@ -36,5 +36,24 @@
 .jumbotron.wrapper {
     background-color: #fff;
 }
+.jumbotron p {
+    font-size: 14px;
+}
+.generalDescription {
+    font-size: 1.2rem;
+}
+.statusType {
+    font-size: 1.2rem;
+    color: red;
+    text-transform: uppercase;
+}
+.statusDesription {
+    font-size: 0.8rem;
+}
+.glyphicon{
+    float: right;
+    cursor: pointer;
+    color: #357ed5;
+}
 
 

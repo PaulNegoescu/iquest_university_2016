@@ -3,10 +3,11 @@
 
 	angular.module('marathon').controller('LandingController', LandingController);
 
-	function LandingController(Users, Objectives, Session) {
-        var vm = this;
-
+	function LandingController(Users, Session, $uibModal) {
+	    var vm = this;
         var user = Session.getStoredUser();
+        var userId = user.id;
+        console.log('dsdasdasda  ' + userId);
 
         var objType = {
             type: 'pfm'
@@ -22,8 +23,22 @@
             vm.members = resp;
         });
 
-        Objectives.read().then(function(result) {
-            vm.objectives = result;
+        Users.readObjectives(userId).then(function(result){
+            vm.userObjectives = result;
+            console.log(vm.userObjectives);
         });
+
+        vm.openHistoryModal = function(id){
+            $uibModal.open({
+                templateUrl: 'app/common/history_modal/history_modal.view.html',
+                controller: 'HistoryModalController as vm',
+                size: 'md',
+                resolve: {
+                    selectedItem: function(){
+                        return id;
+                    }
+                }
+            });
+        };
 	}
 })();

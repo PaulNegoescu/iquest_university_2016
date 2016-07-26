@@ -10,7 +10,7 @@
 
         model.setUser = function(param) {
             model.userId = param.id;
-        }
+        };
 
         model.readPfm = function(type) {
 
@@ -20,6 +20,10 @@
         model.readTm = function(type) {
 
             return apiService.read(this.entity + '/' + model.userId + '/members', type);
+        };
+
+        model.readObjectives = function(id){
+            return this.read(this.entity + '/' + id + '/objectives');
         };
 
         model.configureFields = function(roles) {
@@ -104,12 +108,13 @@
                 {
                     key: "role",
                     type: "select",
+                    defaultValue: roles.name,
                     templateOptions: {
                         label: "Role",
                         required: true,
                         options: roles,
-                        valueProp: 'id',
-                        labelProp: 'name'
+                        valueProp: roles.id,
+                        labelProp: roles.name
                     },
                     validation: {
                         messages: {
@@ -189,7 +194,7 @@
             function validatePass(val) {
                 return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/.test(val);
             }
-        }
+        };
 
     return model;
     }
