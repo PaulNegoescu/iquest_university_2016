@@ -20,7 +20,7 @@
             delete vm.user.controlPass;
 
             Users.create(vm.user).then(function(resp, $log) {
-                if(resp.status === 200 && resp.statusText === "OK") {
+                if(resp.status == 200) {
                     $state.go('dash.users');
                 } else {
                     $log.warn(resp);
