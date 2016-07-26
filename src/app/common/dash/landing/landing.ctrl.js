@@ -9,13 +9,17 @@
         var userId = user.id;
         console.log('dsdasdasda  ' + userId);
 
+        var objType = {
+            type: 'pfm'
+        };
+
         Users.setUser(user);
 
-        Users.readPfm('pfm').then(function(resp) {
+        Users.readPfm(objType).then(function(resp) {
             vm.owners = resp;
         });
 
-        Users.readTm('pfm').then(function(resp) {
+        Users.readTm(objType).then(function(resp) {
             vm.members = resp;
         });
 

@@ -32,13 +32,9 @@
             delete vm.user.password;
             delete vm.user.controlPass;
 
-            Users.update(vm.user).then(function(resp, $log) {
-                if(resp.status === 200 && resp.statusText === "OK") {
+            Users.update(vm.user).then(function(resp) {
                     $state.go('dash.users');
-                } else {
-                    $log.warn(resp);
-                }
-            })
+            });
         };
 
         vm.formFields = Users.registerFields;

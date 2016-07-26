@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('RegisterController', ctrl);
 
-    function ctrl(RolesService, Users, $state, $log) {
+    function ctrl(RolesService, Users, $state) {
         var vm = this;
 
         RolesService.getRoles().then(function(resp){
@@ -45,12 +45,8 @@
                 }
             }
 
-            Users.create(obj).then(function(resp) {
-                if(resp.status == 200) {
+            Users.create(obj).then(function() {
                     $state.go('dash.users');
-                } else {
-                    $log.warn(resp);
-                }
             });
         };
     }
