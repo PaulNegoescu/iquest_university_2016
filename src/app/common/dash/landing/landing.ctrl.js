@@ -5,17 +5,16 @@
 
 	function LandingController(Users, Objectives, Session) {
 	    var vm = this;
-        var type = "pfm";
 
         var user = Session.getStoredUser();
 
         Users.setUser(user);
 
-        Users.readPfm(type).then(function(resp) {
+        Users.readPfm('pfm').then(function(resp) {
             vm.owners = resp;
         });
 
-        Users.readTm(type).then(function(resp) {
+        Users.readTm('pfm').then(function(resp) {
             vm.members = resp;
         });
 
