@@ -7,7 +7,7 @@
         var vm = this;
         vm.user = {};
 
-         RolesService.getRoles().then(function(resp){
+        RolesService.getRoles().then(function(resp){
 
             Users.configureFields(resp);
             vm.formFields = Users.registerFields;
@@ -20,8 +20,9 @@
         function getUser(id) {
             Users.findById(id).then(function(resp) {
                 vm.user = resp;
-            })
+            });
         }
+
         vm.reset = function() {
             vm.user = {};
         };
@@ -32,7 +33,35 @@
             delete vm.user.password;
             delete vm.user.controlPass;
 
-            Users.update(vm.user).then(function(resp) {
+            var obj = {};
+
+            if(vm.user.role == 1) {
+                obj = {
+                    firstName: vm.user.firstName,
+                    lastName: vm.user.lastName,
+                    username: vm.user.username,
+                    email: vm.user.email,
+                    password: vm.user.password,
+                    role: {
+                        id: vm.user.role,
+                        name: 'user'
+                    }
+                }
+            } else if (vm.user.role == 2) {
+                obj = {
+                    firstName: vm.user.firstName,
+                    lastName: vm.user.lastName,
+                    username: vm.user.username,
+                    email: vm.user.email,
+                    password: vm.user.password,
+                    role: {
+                        id: vm.user.role,
+                        name: 'admin'
+                    }
+                }
+            }
+
+            Users.update(obj).then(function(resp) {
                     $state.go('dash.users');
             });
         };
