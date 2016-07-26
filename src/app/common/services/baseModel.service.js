@@ -11,9 +11,9 @@
             return apiService.create(this.entity, data);
         };
 
-        this.read = function() {
+        this.read = function(url) {
 
-            return apiService.read(this.entity);
+            return apiService.read(url || this.entity);
         };
 
         this.findById = function(id) {
@@ -28,10 +28,6 @@
 
         this.delete = function(id) {
             return apiService.delete(this.entity + '/' + id);
-        };
-
-        this.readObjectives = function(id){
-            return apiService.read(this.entity + '/' + id + '/objectives');
         };
     }
 })();
