@@ -29,5 +29,9 @@
         this.delete = function(id) {
             return apiService.delete(this.entity + '/' + id);
         };
+
+        this.readObjectives = function(id){
+            return apiService.read(this.entity + '/' + id + '/objectives');
+        };
     }
 })();
