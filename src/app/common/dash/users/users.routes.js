@@ -14,7 +14,7 @@
         });
         $stateProvider.state('dash.users', {
             url: '/users',
-            templateUrl: '/app/common/dash/users/users_list.view.html',
+            templateUrl: 'app/common/dash/users/users_list.view.html',
             controller: 'usersListController as vm',
             data: {
                 //is_granted: ["ROLE_USER","ROLE_ADMIN"]

@@ -9,6 +9,7 @@
         vm.user = selectedItem;
 
         function getUserList(user) {
+            getMembers(vm.user);
             Users.read().then(function(result) {
                 for(var i=0; i<result.length; i++) {
                     if(result[i].username != user.username) {
@@ -20,7 +21,7 @@
         }
 
         function getMembers(owner) {
-            Relations.getTeamMembers(owner.id).then(function(result) {
+            return Relations.getTeamMembers(owner.id).then(function(result) {
                 for(var i=0; i<result.length; i++) {
                     if(result[i].owner.id == owner.id) {
                         var obj = {
@@ -34,7 +35,7 @@
         }
 
         function filterUserList() {
-             for(var i=0; i<vm.userList.length; i++) {
+            for(var i=0; i<vm.userList.length; i++) {
                 for(var j=0; j<vm.selectedUsers.length; j++) {
                     if(angular.equals(vm.userList[i], vm.selectedUsers[j].member)) {
                         var index = vm.userList.indexOf(vm.userList[i]);
@@ -47,7 +48,6 @@
         vm.reset = function() {
             vm.selectedUsers = [];
             vm.userList = [];
-            getMembers(vm.user);
             getUserList(vm.user);
         };
 

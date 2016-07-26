@@ -3,15 +3,19 @@
 
 	angular.module('marathon').controller('LandingController', LandingController);
 
-	function LandingController(Relations, Objectives) {
-		var vm = this;
+	function LandingController(Users, Objectives, Session) {
+	    var vm = this;
 
-		Relations.getTeamMembers().then(function(result) {
-            vm.members = result;
+        var user = Session.getStoredUser();
+
+        Users.setUser(user);
+
+        Users.readPfm('pfm').then(function(resp) {
+            vm.owners = resp;
         });
 
-        Relations.getPfms().then(function(result) {
-            vm.owners = result;
+        Users.readTm('pfm').then(function(resp) {
+            vm.members = resp;
         });
 
         Objectives.read().then(function(result) {
