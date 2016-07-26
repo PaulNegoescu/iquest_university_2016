@@ -13,7 +13,7 @@
             controller: 'ManageController as vm'
         });
         $stateProvider.state('dash.users', {
-            url: '/users',
+            url: '/users/:ownerId',
             templateUrl: 'app/common/dash/users/users_list.view.html',
             controller: 'usersListController as vm',
             data: {
