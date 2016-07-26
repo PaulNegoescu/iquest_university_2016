@@ -10,7 +10,7 @@
 
         vm.login = function(){
             Session.login(vm.user.username, vm.user.password).then(function() {
-                $state.go('dash');
+                $state.go('dash.landing');
             }, function(err) {
                 if (err.message) {
                     vm.errorMessage = err.message;
