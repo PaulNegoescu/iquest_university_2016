@@ -13,7 +13,7 @@
 
             <ol>
                 <li ng-repeat="member in vm.members">{{member.firstName}} {{member.lastName | uppercase}}
-                    <button class="btn btn-primary" ui-sref="dash.objectives">Add objectives</button>
+                    <i class="glyphicon glyphicon-plus-sign" ui-sref="dash.objectives"></i>
                 </li>
             </ol>
         </div>
@@ -29,35 +29,33 @@
                 <th>Title</th>
                 <th>Description</th>
                 <th>Status</th>
-                <th>Comments</th>
+                <th>Comment</th>
             </tr>
             </thead>
             <tbody>
-            <tr class="tableRow" ng-repeat="objective in vm.objectives">
-                <td class="objectivesColumn col-md-3">{{objective.title}}</td>
-                <td class="descriptionColumn col-md-3">
+            <tr class="tableRow" ng-repeat="objective in vm.userObjectives">
+                <td class="objectivesColumn col-md-2">{{objective.title}}</td>
+                <td class="descriptionColumn col-md-6">
                     <uib-accordion>
                         <uib-accordion-group is-open="false">
-                            <uib-accordion-heading>
-                                {{objective.shortDescription}}
+                            <uib-accordion-heading class="generalDescription">
+                                {{objective.descriptions[0].text}}
                                 <i class="glyphicon glyphicon-chevron-down"></i>
                             </uib-accordion-heading>
-                            {{objective.description}}
+                            <div class="objectiveStatus" ng-repeat="i in [1,2,3]">
+                                <p class="statusType">{{objective.descriptions[i].type}}</p>
+                                <p class="statusDescription">{{objective.descriptions[i].text}}</p>
+                            </div>
                         </uib-accordion-group>
                     </uib-accordion>
                 </td>
-                <td class="statusColumn col-md-3">
-                    <uib-accordion>
-                        <uib-accordion-group is-open="false">
-                            <uib-accordion-heading>
-                                {{objective.shortDescription}}
-                                <i class="glyphicon glyphicon-chevron-down"></i>
-                            </uib-accordion-heading>
-                            {{objective.description}}
-                        </uib-accordion-group>
-                    </uib-accordion>
+                <td class="statusColumn col-md-2">
+                    {{objective.evaluation.status}}
+                    <i class="glyphicon glyphicon-list-alt" ng-click="vm.openHistoryModal(objective.id)"></i>
                 </td>
-                <td class="dueDateColumn col-md-3">{{objective.dueDate}}</td>
+                <td class="commentsColumn col-md-2">
+                    {{objective.evaluation.comment}}
+                </td>
             </tr>
             </tbody>
         </table>
