@@ -62,7 +62,6 @@
                     }
                 }
             }
-            console.log("Update user: ", obj);
 
             Users.update(obj).then(function() {
                     $state.go('dash.users');
