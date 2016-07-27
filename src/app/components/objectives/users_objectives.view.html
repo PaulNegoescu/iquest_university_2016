@@ -18,43 +18,25 @@
                 <td>
                      <uib-accordion>
                         <uib-accordion-group is-open="false">
+
                             <uib-accordion-heading>
-                                <span> General: </span>
-                                <span editable-textarea="objective.description" e-cols="40">
-                                    {{ objective.description }}
-                                </span>
+                                <span> {{ objective.descriptions[0].text }} </span>
                                 <i class="glyphicon glyphicon-chevron-down"></i>
                             </uib-accordion-heading>
-                            <div>
-                                <span>
-                                    On target:
-                                </span>
-                                <span editable-textarea="objective.description" e-cols="40">
-                                    {{ objective.description }}
-                                </span>
-                            </div>
-                            <div>
-                                <span>
-                                    Overachieved:
-                                </span>
-                                <span editable-textarea="objective.description" e-cols="40">
-                                    {{ objective.description }}
+
+                            <div ng-repeat="i in [0,1,2,3]">
+                                <span class="descriptionType"> {{ objective.descriptions[i].type }} </span>
+                                 <span editable-textarea="objective.descriptions[i].text" onbeforesave="vm.updateObjective(objective)" e-cols="60">
+                                    {{ objective.descriptions[i].text }}
                                 </span>
                             </div>
-                            <div>
-                                <span>
-                                    Underachieved:
-                                </span>
-                                <span editable-textarea="objective.description" e-cols="40">
-                                    {{ objective.description }}
-                                </span>
-                            </div>
+
                         </uib-accordion-group>
                     </uib-accordion>
                 </td>
                 <td>
-                    <button class="btn btn-primary"> Evaluate </button>
-                    <button class="btn btn-danger"> Close </button>
+                    <button class="btn btn-primary" ng-click="vm.openEvaluationModal(objective.id)"> Evaluate </button>
+                    <button class="btn btn-danger" ng-click="vm.openDeleteConfirmation(objective)"> Close </button>
                 </td>
             </tr>
         </tbody>
