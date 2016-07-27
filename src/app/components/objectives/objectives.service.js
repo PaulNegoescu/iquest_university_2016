@@ -7,7 +7,30 @@
 
         this.entity = 'objectives';
 
-        this.createObjectives = function(data) {
+        this.createObjective = function(owner, memberId, objective) {
+            var data = {
+                title: objective.title,
+                ownerId: owner.id,
+                memberId: memberId,
+                descriptions: [
+                    {
+                        type: 'general',
+                        text: objective.general
+                    },
+                    {
+                        type: 'on target',
+                        text: objective.onTarget
+                    },
+                    {
+                        type: 'overachieved',
+                        text: objective.overachieved
+                    },
+                    {
+                        type: 'underachieved',
+                        text: objective.underachieved
+                    }
+                ]
+            };
 
             return apiService.create(this.entity, data);
         }
@@ -26,5 +49,58 @@
 
             return apiService.read(this.entity + '/' + memberId);
         }
+
+        this.objectiveFields = [
+            {
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                    type: 'text',
+                    label: 'Title',
+                    required: true,
+                    placeholder: 'Objective title'
+                }
+            },
+            {
+                key: 'general',
+                type: 'input',
+                templateOptions: {
+                    type: 'textarea',
+                    label: 'Description',
+                    required: true,
+                    placeholder: 'Objective description'
+                }
+            },
+            {
+                key: 'onTarget',
+                type: 'input',
+                templateOptions: {
+                    type: 'textarea',
+                    label: 'On target',
+                    required: true,
+                    placeholder: 'Specify on target meaning'
+                }
+            },
+            {
+                key: 'overachieved',
+                type: 'input',
+                templateOptions: {
+                    type: 'textarea',
+                    label: 'Overachieved',
+                    required: true,
+                    placeholder: 'Specify overachieved meaning'
+                }
+            },
+            {
+                key: 'underachieved',
+                type: 'input',
+                templateOptions: {
+                    type: 'textarea',
+                    label: 'Underachieved',
+                    required: true,
+                    placeholder: 'Specify underachieved meaning'
+                }
+            }
+        ];
     }
 })();
