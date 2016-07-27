@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h4>Evaluate objective for: {{vm.user.firstName}} {{vm.user.lastName}}</h4>
+</div>
+
+<div class="modal-body">
+    <div class="list-group">
+        <h4>Title: </h4> {{objective.title}}
+        <h4>Description: </h4> {{objective.description}}
+    </div>
+
+    <div class="list-group">
+        <h4>Objective status: </h4>
+
+        <form class="selectStatus">
+            <div class="col-md-6">
+                <input type="radio" name="status" id="onTarget" value="onTarget">
+                <label for="onTarget">On target</label>
+            </div>
+
+            <div class="col-md-6">
+                <input type="radio" name="status" id="underachieved" value="underachieved">
+                <label for="underachieved">Underachieved</label>
+            </div>
+
+            <div class="col-md-6">
+                <input type="radio" name="status" id="overachieved" value="overachieved">
+                <label for="overachieved">Overachieved</label>
+            </div>
+        </form>
+    </div>
+
+    <div class="list-group">
+        <label for="comment">
+            <h4>Comment: </h4>
+        </label>
+        <div class="col-md-6">
+            <textarea id="comment" class="form-control" placeholder="Write a comment here..."></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="vm.save()">Save changes</button>
+    <button class="btn" ng-click="vm.cancel()">Cancel</button>
+</div>
