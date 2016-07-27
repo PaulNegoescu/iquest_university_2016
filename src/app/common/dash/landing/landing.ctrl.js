@@ -4,7 +4,7 @@
 	angular.module('marathon').controller('LandingController', LandingController);
 
 	function LandingController(Users, Session, $uibModal) {
-	    var vm = this;
+        var vm = this;
         var user = Session.getStoredUser();
         var userId = user.id;
 
@@ -24,7 +24,6 @@
 
         Users.readObjectives(userId).then(function(result){
             vm.userObjectives = result;
-            console.log(vm.userObjectives);
         });
 
         vm.openHistoryModal = function(id){
