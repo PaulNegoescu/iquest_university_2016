@@ -40,16 +40,6 @@
             return apiService.update(this.entity, data);
         }
 
-        this.getObjectives = function() {
-
-            return apiService.read(this.entity);
-        }
-
-        this.findObjectives = function(memberId) {
-
-            return apiService.read(this.entity + '/' + memberId);
-        }
-
         this.objectiveFields = [
             {
                 key: 'title',
