@@ -14,7 +14,7 @@
         });
 
         vm.manage = function(user) {
-            $state.go('dash.manage', {selectedId : user.id});
+            $state.go('dash.users.manage', {selectedId : user.id});
         };
 
         vm.openAssignView = function(user){
@@ -76,7 +76,7 @@
         };
 
         vm.register = function(){
-            $state.go('dash.register');
+            $state.go('dash.users.register');
         };
     }
 })();

@@ -13,12 +13,10 @@
         };
 
         model.readPfm = function(type) {
-
             return apiService.read(this.entity + '/' + model.userId + '/owners', type);
         };
 
         model.readTm = function(type) {
-
             return apiService.read(this.entity + '/' + model.userId + '/members', type);
         };
 
@@ -108,13 +106,12 @@
                 {
                     key: "role",
                     type: "select",
-                    defaultValue: roles.name,
+                    defaultValue: roles[0],
                     templateOptions: {
                         label: "Role",
                         required: true,
                         options: roles,
-                        valueProp: "id",
-                        labelProp: "name"
+                        ngOptions: "option as option.name for option in to.options track by option.id"
                     },
                     validation: {
                         messages: {

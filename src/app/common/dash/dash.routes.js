@@ -10,13 +10,6 @@
             data: {
                 //is_granted: ["ROLE_USER","ROLE_ADMIN"]
             }
-        }).state('users', {
-            url: '/users',
-            templateUrl: 'app/common/dash/users/users_list.view.html',
-            controller: 'usersListController as vm',
-            data: {
-                //is_granted: ["ROLE_ADMIN"]
-            }
         }).state('objectives', {
             url:'/objectives/:memberId',
             templateUrl: 'app/components/objectives/users_objectives.view.html',
