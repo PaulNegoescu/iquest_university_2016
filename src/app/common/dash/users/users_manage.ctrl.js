@@ -37,6 +37,7 @@
 
             if(vm.user.role == 1) {
                 obj = {
+                    id: vm.user.id,
                     firstName: vm.user.firstName,
                     lastName: vm.user.lastName,
                     username: vm.user.username,
@@ -49,6 +50,7 @@
                 }
             } else if (vm.user.role == 2) {
                 obj = {
+                    id: vm.user.id,
                     firstName: vm.user.firstName,
                     lastName: vm.user.lastName,
                     username: vm.user.username,
