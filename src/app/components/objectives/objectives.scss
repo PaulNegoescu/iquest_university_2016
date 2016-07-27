@@ -1,0 +1,23 @@
+.objectives_wrapper{
+    width: 90%;
+    margin: 0 auto;
+    .descriptionType{
+        font-size: 16px;
+        color:green;
+    }
+}
+.add_objective{
+    margin: 15px 0;
+}
+.obj_table_head{
+    background-color: #357ED5;
+    color: white;
+}
+span.editable-click {
+    color: black;
+    border-bottom: none;
+}
+span.editable-click:hover {
+    color: black;
+    border: none;
+}
