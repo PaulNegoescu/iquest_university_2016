@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="vm.dismiss()">
+          <span aria-hidden="true">&times;</span>
+    </button>
+    <h3>Add new objective for: {{vm.owner.firstName}} {{vm.owner.lastName}}</h3>
+</div>
+
+<div class="modal-body">
+    <div class="alert alert-danger" role="alert" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
+        <formly-form model="vm.objective" fields="vm.objectiveFields" form="vm.objectiveForm">
+            <button type="submit" class="btn btn-success" ng-disabled="vm.objectiveForm.$invalid" ng-click="vm.addObjective(vm.owner, vm.memberId, vm.objective)">Submit</button>
+        </formly-form>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-click="vm.reset()">Reset</button>
+</div>
+
