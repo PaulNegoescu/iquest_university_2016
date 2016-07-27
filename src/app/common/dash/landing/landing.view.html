@@ -13,7 +13,7 @@
 
             <ol>
                 <li ng-repeat="member in vm.members">{{member.firstName}} {{member.lastName | uppercase}}
-                    <button class="btn btn-primary" ui-sref="dash.objectives({ownerId: owner.id})">Add objectives</button>
+                    <button class="btn btn-primary" ui-sref="dash.objectives({memberId: member.id})">Add objectives</button>
                 </li>
             </ol>
         </div>
