@@ -1,0 +1,64 @@
+<h3>Objectives for Team Member</h3>
+
+<div class="objectives_wrapper">
+    <button class="btn btn-primary add_objective" ng-click="vm.addObjective()"> Add New </button>
+
+    <table class="table table-bordered">
+        <caption> Assigned Objectives </caption>
+        <thead class="obj_table_head">
+            <tr>
+                <th> Title </th>
+                <th> Description </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="objective in vm.objectives">
+                <td editable-text="objective.title"> {{ objective.title }} </td>
+                <td>
+                     <uib-accordion>
+                        <uib-accordion-group is-open="false">
+                            <uib-accordion-heading>
+                                <span> General: </span>
+                                <span editable-textarea="objective.description" e-cols="40">
+                                    {{ objective.description }}
+                                </span>
+                                <i class="glyphicon glyphicon-chevron-down"></i>
+                            </uib-accordion-heading>
+                            <div>
+                                <span>
+                                    On target:
+                                </span>
+                                <span editable-textarea="objective.description" e-cols="40">
+                                    {{ objective.description }}
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    Overachieved:
+                                </span>
+                                <span editable-textarea="objective.description" e-cols="40">
+                                    {{ objective.description }}
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    Underachieved:
+                                </span>
+                                <span editable-textarea="objective.description" e-cols="40">
+                                    {{ objective.description }}
+                                </span>
+                            </div>
+                        </uib-accordion-group>
+                    </uib-accordion>
+                </td>
+                <td>
+                    <button class="btn btn-primary"> Evaluate </button>
+                    <button class="btn btn-danger"> Close </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
