@@ -3,10 +3,11 @@
 
     angular.module('marathon').controller('AddObjectiveController', ctrl);
 
-    function ctrl(Objectives, memberId, owner, $uibModalInstance) {
+    function ctrl(Objectives, member, owner, $uibModalInstance) {
         var vm = this;
         vm.owner = owner;
-        vm.memberId = memberId;
+        vm.member = member;
+        vm.memberId = member.id;
 
         vm.addObjective = function(owner, memberId, objective) {
             Objectives.createObjective(owner, memberId, objective);
