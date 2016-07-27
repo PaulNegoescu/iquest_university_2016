@@ -9,16 +9,20 @@
         vm.memberId = $stateParams.memberId;
         vm.owner = Session.getStoredUser();
 
-        Users.readObjectives(vm.memberId).then(function(resp){
-            vm.objectives = resp;
-        });
+        getObjectives();
+
+        function getObjectives() {
+            Users.readObjectives(vm.memberId).then(function(resp){
+                vm.objectives = resp;
+            });
+        }
 
         Users.findById(vm.memberId).then(function(resp) {
             vm.member = resp;
         });
 
         vm.addObjective = function(){
-            $uibModal.open({
+            var modalInstance = $uibModal.open({
                 templateUrl: 'app/components/objectives/add_objective_modal.view.html',
                 controller: 'AddObjectiveController as vm',
                 size: 'md',
@@ -30,6 +34,10 @@
                         return vm.owner;
                     }
                 }
+            });
+
+            modalInstance.result.then(function() {
+                getObjectives();
             });
         };
 
