@@ -9,14 +9,15 @@
         vm.user = selectedItem;
 
         function getUserList(user) {
-            getMembers(vm.user);
-            Users.read().then(function(result) {
-                for(var i=0; i<result.length; i++) {
-                    if(result[i].username != user.username) {
-                        vm.userList.push(result[i]);
-                        filterUserList();
+            getMembers(vm.user).then(function() {
+                Users.read().then(function(result) {
+                    for(var i=0; i<result.length; i++) {
+                        if(result[i].username != user.username) {
+                            vm.userList.push(result[i]);
+                            filterUserList();
+                        }
                     }
-                }
+                });
             });
         }
 

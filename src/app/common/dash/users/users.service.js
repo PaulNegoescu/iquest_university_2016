@@ -3,23 +3,27 @@
 
     angular.module('marathon').factory('Users', Users);
 
-    function Users(BaseModel, $timeout) {
+    function Users(BaseModel, $timeout, apiService) {
 
         var model = Object.create(BaseModel);
         model.entity = 'users';
 
         model.setUser = function(param) {
             model.userId = param.id;
-        }
+        };
 
         model.readPfm = function(type) {
 
-            return this.read(this.entity + '/' + model.userId + '/owners', type);
+            return apiService.read(this.entity + '/' + model.userId + '/owners', type);
         };
 
         model.readTm = function(type) {
 
-           return this.read(this.entity + '/' + model.userId + '/members', type);
+            return apiService.read(this.entity + '/' + model.userId + '/members', type);
+        };
+
+        model.readObjectives = function(id){
+            return this.read(this.entity + '/' + id + '/objectives');
         };
 
         model.configureFields = function(roles) {
@@ -104,12 +108,13 @@
                 {
                     key: "role",
                     type: "select",
+                    defaultValue: roles.name,
                     templateOptions: {
                         label: "Role",
                         required: true,
                         options: roles,
-                        valueProp: 'id',
-                        labelProp: 'name'
+                        valueProp: "id",
+                        labelProp: "name"
                     },
                     validation: {
                         messages: {
@@ -189,7 +194,7 @@
             function validatePass(val) {
                 return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/.test(val);
             }
-        }
+        };
 
     return model;
     }
