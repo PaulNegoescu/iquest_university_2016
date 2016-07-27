@@ -1,0 +1,46 @@
+<h3>Objectives for Team Member</h3>
+
+<div class="objectives_wrapper">
+    <button class="btn btn-primary add_objective" ng-click="vm.addObjective()"> Add New </button>
+
+    <table class="table table-bordered">
+        <caption> Assigned Objectives </caption>
+        <thead class="obj_table_head">
+            <tr>
+                <th> Title </th>
+                <th> Description </th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="objective in vm.objectives">
+                <td editable-text="objective.title"> {{ objective.title }} </td>
+                <td>
+                     <uib-accordion>
+                        <uib-accordion-group is-open="false">
+
+                            <uib-accordion-heading>
+                                <span> {{ objective.descriptions[0].text }} </span>
+                                <i class="glyphicon glyphicon-chevron-down"></i>
+                            </uib-accordion-heading>
+
+                            <div ng-repeat="i in [0,1,2,3]">
+                                <span class="descriptionType"> {{ objective.descriptions[i].type }} </span>
+                                 <span editable-textarea="objective.descriptions[i].text" onbeforesave="vm.updateObjective(objective)" e-cols="60">
+                                    {{ objective.descriptions[i].text }}
+                                </span>
+                            </div>
+
+                        </uib-accordion-group>
+                    </uib-accordion>
+                </td>
+                <td>
+                    <button class="btn btn-primary" ng-click="vm.openEvaluationModal(objective.id)"> Evaluate </button>
+                    <button class="btn btn-danger" ng-click="vm.openDeleteConfirmation(objective)"> Close </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

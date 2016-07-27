@@ -17,6 +17,10 @@
             data: {
                 //is_granted: ["ROLE_ADMIN"]
             }
+        }).state('objectives', {
+            url:'/objectives/:memberId',
+            templateUrl: 'app/components/objectives/users_objectives.view.html',
+            controller: 'userObjectivesController as vm'
         });
     });
 })();
