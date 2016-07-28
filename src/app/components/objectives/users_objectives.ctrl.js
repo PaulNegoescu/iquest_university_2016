@@ -85,13 +85,13 @@
             });
         }
 
-        vm.openHistoryModal = function(id){
+        vm.openEditEvalModal = function(id){
             $uibModal.open({
-                templateUrl: 'app/common/history_modal/history_modal.view.html',
-                controller: 'HistoryModalController as vm',
+                templateUrl: 'app/common/edit_evaluation_modal/edit_evaluation_modal.view.html',
+                controller: 'EditEvaluationModalController as vm',
                 size: 'md',
                 resolve: {
-                    selectedItem: function(){
+                    selectedItem: function() {
                         return id;
                     }
                 }

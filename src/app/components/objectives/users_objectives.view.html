@@ -14,7 +14,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="objective in vm.objectives">
-                <td editable-text="objective.title"> {{ objective.title }} </td>
+                <td editable-text="objective.title" onaftersave="vm.updateObjective(objective)"> {{ objective.title }} </td>
                 <td>
                      <uib-accordion>
                         <uib-accordion-group is-open="false">
@@ -24,9 +24,9 @@
                                 <i class="glyphicon glyphicon-chevron-down"></i>
                             </uib-accordion-heading>
 
-                            <div ng-repeat="i in [0,1,2,3]">
+                            <div ng-repeat="i in [0,1,2,3]" uib-tooltip = "Click to edit">
                                 <span class="descriptionType"> {{ objective.descriptions[i].type }} </span>
-                                 <span editable-textarea="objective.descriptions[i].text" onbeforesave="vm.updateObjective(objective)" e-cols="60">
+                                 <span editable-textarea="objective.descriptions[i].text" onaftersave="vm.updateObjective(objective)" e-cols="60">
                                     {{ objective.descriptions[i].text }}
                                 </span>
                             </div>
@@ -35,8 +35,8 @@
                     </uib-accordion>
                 </td>
                 <td>
-                    {{objective.evaluation.status}}
-                    <i class="glyphicon glyphicon-list-alt" ng-click="vm.openHistoryModal(objective.id)"></i>
+                    {{objective.lastEvaluation.status}}
+                    <i class="glyphicon glyphicon-list-alt" ng-click="vm.openEditEvalModal(objective.id)"></i>
                 </td>
                 <td>
                     <button class="btn btn-primary" ng-click="vm.openEvaluationModal(objective, vm.memberId)"> Evaluate </button>
