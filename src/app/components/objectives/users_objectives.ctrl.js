@@ -42,6 +42,7 @@
         };
 
         vm.updateObjective = function(data) {
+            data.closed = false;
             Objectives.updateObjective(data);
         };
 
