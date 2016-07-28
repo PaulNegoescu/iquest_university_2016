@@ -11,7 +11,6 @@
         };
 
         this.read = function(url, data) {
-            console.log(url, this.entity);
             return apiService.read(url || this.entity, data);
         };
 
