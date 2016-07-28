@@ -8,7 +8,7 @@
 
         this.create = function(data) {
 
-            return apiService.create(this.entity, data);
+            return apiService.create(data || this.entity);
         };
 
         this.read = function(url) {

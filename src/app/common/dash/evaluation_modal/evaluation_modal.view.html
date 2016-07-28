@@ -15,20 +15,18 @@
         <h4 class="objectiveTitle">Status: </h4>
 
         <form class="selectStatus">
-            <div class="status col-md-4">
-                <input type="radio" name="status" id="onTarget" value="onTarget" ng-model="vm.evaluation.status">
-                <label for="onTarget">On target</label>
-            </div>
 
-            <div class="status col-md-4">
-                <input type="radio" name="status" id="underachieved" value="underachieved" ng-model="vm.evaluation.status">
-                <label for="underachieved">Underachieved</label>
-            </div>
+            <label class="status" for="onTarget">
+                <input type="radio" name="status" id="onTarget" value="onTarget" ng-model="vm.evaluation.status">On target
+            </label>
 
-            <div class="status col-md-4">
-                <input type="radio" name="status" id="overachieved" value="overachieved" ng-model="vm.evaluation.status">
-                <label for="overachieved">Overachieved</label>
-            </div>
+            <label class="status" for="underachieved">
+                <input type="radio" name="status" id="underachieved" value="underachieved" ng-model="vm.evaluation.status">Underachieved
+            </label>
+
+            <label class="status" for="overachieved">
+                <input type="radio" name="status" id="overachieved" value="overachieved" ng-model="vm.evaluation.status">Overachieved
+            </label>
         </form>
     </div>
 
