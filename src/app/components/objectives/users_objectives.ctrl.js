@@ -70,5 +70,18 @@
             Objectives.updateObjective(closeObj);
         }
 
+        vm.openHistoryModal = function(id){
+            $uibModal.open({
+                templateUrl: 'app/common/history_modal/history_modal.view.html',
+                controller: 'HistoryModalController as vm',
+                size: 'md',
+                resolve: {
+                    selectedItem: function(){
+                        return id;
+                    }
+                }
+            });
+        };
+
     }
 })();

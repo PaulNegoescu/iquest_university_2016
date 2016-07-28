@@ -8,6 +8,7 @@
             <tr>
                 <th> Title </th>
                 <th> Description </th>
+                <th> Status </th>
                 <th> Actions </th>
             </tr>
         </thead>
@@ -32,6 +33,10 @@
 
                         </uib-accordion-group>
                     </uib-accordion>
+                </td>
+                <td>
+                    {{objective.evaluation.status}}
+                    <i class="glyphicon glyphicon-list-alt" ng-click="vm.openHistoryModal(objective.id)"></i>
                 </td>
                 <td>
                     <button class="btn btn-primary" ng-click="vm.openEvaluationModal(objective.id)"> Evaluate </button>
