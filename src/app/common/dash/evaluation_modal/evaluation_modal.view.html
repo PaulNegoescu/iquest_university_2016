@@ -1,41 +1,40 @@
 <div class="modal-header">
-    <h4>Evaluate objective for: {{vm.user.firstName}} {{vm.user.lastName}}</h4>
+    <h4>Evaluate objective for: {{vm.member.firstName}} {{vm.member.lastName}}</h4>
 </div>
 
 <div class="modal-body">
     <div class="list-group">
-        <h4>Title: </h4> {{objective.title}}
-        <h4>Description: </h4> {{objective.description}}
+        <h4 class="objectiveTitle">Title: </h4>
+        <p class="objectiveText">{{vm.objective.title}}</p>
+
+        <h4 class="objectiveTitle">Description: </h4>
+        <p class="objectiveText">{{vm.objective.descriptions[0].text}}</p>
     </div>
 
     <div class="list-group">
-        <h4>Objective status: </h4>
+        <h4 class="objectiveTitle">Status: </h4>
 
         <form class="selectStatus">
-            <div class="col-md-6">
-                <input type="radio" name="status" id="onTarget" value="onTarget">
+            <div class="status col-md-4">
+                <input type="radio" name="status" id="onTarget" value="onTarget" ng-model="vm.evaluation.status">
                 <label for="onTarget">On target</label>
             </div>
 
-            <div class="col-md-6">
-                <input type="radio" name="status" id="underachieved" value="underachieved">
+            <div class="status col-md-4">
+                <input type="radio" name="status" id="underachieved" value="underachieved" ng-model="vm.evaluation.status">
                 <label for="underachieved">Underachieved</label>
             </div>
 
-            <div class="col-md-6">
-                <input type="radio" name="status" id="overachieved" value="overachieved">
+            <div class="status col-md-4">
+                <input type="radio" name="status" id="overachieved" value="overachieved" ng-model="vm.evaluation.status">
                 <label for="overachieved">Overachieved</label>
             </div>
         </form>
     </div>
 
     <div class="list-group">
-        <label for="comment">
-            <h4>Comment: </h4>
-        </label>
-        <div class="col-md-6">
-            <textarea id="comment" class="form-control" placeholder="Write a comment here..."></textarea>
-        </div>
+        <h4 class="objectiveTitle">Comment:</h4>
+        <textarea id="comment" class="form-control commentArea" ng-model="vm.evaluation.comment" placeholder="Write a comment here..."></textarea>
     </div>
 </div>
 

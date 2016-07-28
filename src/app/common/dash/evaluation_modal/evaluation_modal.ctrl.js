@@ -1,22 +1,26 @@
 (function(){
     'use strict';
 
-    angular.module('marathon').controller('evaluationModalController', evaluationModalCtrl);
+    angular.module('marathon').controller('EvaluationModalController', EvaluationModalController);
 
-    function evaluationModalCtrl($uibModalInstance, $state, Evaluations) {
+    function EvaluationModalController($uibModalInstance, Evaluations, memberId, objective, Users) {
         var vm = this;
+        vm.objective = objective;
+        vm.evaluation = {};
+
+        Users.findById(memberId).then(function(response){
+            vm.member = response;
+        });
 
         vm.save = function () {
-            Evaluations.create().then(function() {
-                $state.go('dash.landing');
-            });
+            vm.evaluation.objectiveId = vm.objective.id;
+            Evaluations.create(vm.evaluation);
             $uibModalInstance.close();
         };
 
         vm.cancel = function () {
             $uibModalInstance.dismiss();
         };
-
 
     }
 })();
