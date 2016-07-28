@@ -9,7 +9,7 @@
             abstract: true
         });
 
-        $stateProvider.state('dash.objectives', {
+        $stateProvider.state('dash.users.objectives', {
             url:'/objectives/:memberId',
             templateUrl: 'app/components/objectives/users_objectives.view.html',
             controller: 'userObjectivesController as vm'
