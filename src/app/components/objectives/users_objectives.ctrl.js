@@ -43,7 +43,7 @@
 
         vm.updateObjective = function(data) {
             data.closed = false;
-            Objectives.updateObjective(data);
+            Objectives.update(data);
         };
 
         function openConfirmation(message, cb) {

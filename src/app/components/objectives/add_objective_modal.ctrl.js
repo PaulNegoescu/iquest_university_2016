@@ -10,7 +10,30 @@
         vm.memberId = member.id;
 
         vm.addObjective = function(owner, memberId, objective) {
-            Objectives.createObjective(owner, memberId, objective);
+            var data = {
+                title: objective.title,
+                ownerId: owner.id,
+                memberId: memberId,
+                descriptions: [
+                    {
+                        type: 'general',
+                        text: objective.general
+                    },
+                    {
+                        type: 'on target',
+                        text: objective.onTarget
+                    },
+                    {
+                        type: 'overachieved',
+                        text: objective.overachieved
+                    },
+                    {
+                        type: 'underachieved',
+                        text: objective.underachieved
+                    }
+                ]
+            };
+            Objectives.create(data);
             $uibModalInstance.close();
         };
 
