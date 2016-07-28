@@ -50,11 +50,11 @@
                     </uib-accordion>
                 </td>
                 <td class="statusColumn col-md-2">
-                    {{objective.evaluation.status}}
+                    {{objective.lastEvaluation.status}}
                     <i class="glyphicon glyphicon-list-alt" ng-click="vm.openHistoryModal(objective.id)"></i>
                 </td>
                 <td class="commentsColumn col-md-2">
-                    {{objective.evaluation.comment}}
+                    {{objective.lastEvaluation.comment}}
                 </td>
             </tr>
             </tbody>

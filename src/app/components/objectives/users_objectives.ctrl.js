@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('marathon').controller('userObjectivesController', utc)
+    angular.module('marathon').controller('userObjectivesController', utc);
 
     function utc(Users, Objectives, Session, $stateParams, $uibModal, ConfirmationModal, $log) {
         var vm = this;
@@ -68,6 +68,21 @@
 
             closeObj.closed = true;
             Objectives.updateObjective(closeObj);
+        }
+        vm.openEvaluationModal = function(obj, memberId) {
+            $uibModal.open({
+                templateUrl: 'app/common/dash/evaluation_modal/evaluation_modal.view.html',
+                controller: 'EvaluationModalController as vm',
+                size: 'md',
+                resolve: {
+                    objective: function () {
+                        return obj;
+                    },
+                    memberId: function() {
+                        return memberId;
+                    }
+                }
+            });
         }
 
         vm.openHistoryModal = function(id){

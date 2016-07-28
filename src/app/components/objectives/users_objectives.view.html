@@ -39,7 +39,7 @@
                     <i class="glyphicon glyphicon-list-alt" ng-click="vm.openHistoryModal(objective.id)"></i>
                 </td>
                 <td>
-                    <button class="btn btn-primary" ng-click="vm.openEvaluationModal(objective.id)"> Evaluate </button>
+                    <button class="btn btn-primary" ng-click="vm.openEvaluationModal(objective, vm.memberId)"> Evaluate </button>
                     <button class="btn btn-danger" ng-click="vm.openDeleteConfirmation(objective)"> Close </button>
                 </td>
             </tr>
