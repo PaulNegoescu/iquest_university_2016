@@ -13,7 +13,7 @@
 
             <ol>
                 <li ng-repeat="member in vm.members">{{member.firstName}} {{member.lastName | uppercase}}
-                    <i class="glyphicon glyphicon-plus-sign" ui-sref="dash.objectives({memberId: member.id})"></i>
+                    <i class="glyphicon glyphicon-plus-sign" ui-sref="dash.users.objectives({memberId: member.id})"></i>
                 </li>
             </ol>
         </div>
