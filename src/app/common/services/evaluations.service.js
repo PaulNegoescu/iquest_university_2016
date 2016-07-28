@@ -3,12 +3,10 @@
 
     angular.module('marathon').service('Evaluations', Evaluations);
 
-    function Evaluations(apiService) {
+    function Evaluations(BaseModel) {
+        var model = Object.create(BaseModel);
+        model.entity = 'evaluations';
 
-        this.entity = 'evaluations';
-
-        this.read = function(objectiveId) {
-            return apiService.read(this.entity + '/' + objectiveId);
-        };
+        return model;
     }
 })();

@@ -33,12 +33,12 @@
             };
 
             return apiService.create(this.entity, data);
-        }
+        };
 
         this.updateObjective = function(data) {
 
             return apiService.update(this.entity, data);
-        }
+        };
 
         this.objectiveFields = [
             {

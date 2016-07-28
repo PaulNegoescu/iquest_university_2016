@@ -6,7 +6,7 @@
     function HistoryModalController($uibModalInstance, selectedItem, Evaluations){
         var vm = this;
 
-        Evaluations.read(selectedItem).then(function(response){
+        Evaluations.findById(selectedItem).then(function(response){
             vm.evaluations = response;
         });
 
