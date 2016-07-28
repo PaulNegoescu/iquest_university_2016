@@ -7,17 +7,15 @@
         this.entity = '';
 
         this.create = function(data) {
-
-            return apiService.create(data || this.entity);
+            return apiService.create(this.entity, data);
         };
 
-        this.read = function(url) {
-
-            return apiService.read(url || this.entity);
+        this.read = function(url, data) {
+            console.log(url, this.entity);
+            return apiService.read(url || this.entity, data);
         };
 
         this.findById = function(id) {
-
             return apiService.read(this.entity +'/'+ id);
         };
 

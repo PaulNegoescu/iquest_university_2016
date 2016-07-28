@@ -3,7 +3,7 @@
 
     angular.module('marathon').factory('Users', Users);
 
-    function Users(BaseModel, $timeout, apiService) {
+    function Users(BaseModel, $timeout) {
 
         var model = Object.create(BaseModel);
         model.entity = 'users';
@@ -13,11 +13,11 @@
         };
 
         model.readPfm = function(type) {
-            return apiService.read(this.entity + '/' + model.userId + '/owners', type);
+            return this.read(this.entity + '/' + model.userId + '/owners', type);
         };
 
         model.readTm = function(type) {
-            return apiService.read(this.entity + '/' + model.userId + '/members', type);
+            return this.read(this.entity + '/' + model.userId + '/members', type);
         };
 
         model.readObjectives = function(id){
