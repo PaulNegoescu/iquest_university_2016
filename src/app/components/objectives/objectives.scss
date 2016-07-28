@@ -15,9 +15,10 @@
 }
 span.editable-click {
     color: black;
-    border-bottom: none;
+    border: none;
 }
 span.editable-click:hover {
-    color: black;
+    color:black;
     border: none;
+    cursor: pointer;
 }

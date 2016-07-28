@@ -9,6 +9,12 @@
             abstract: true
         });
 
+        $stateProvider.state('dash.users.objectives', {
+            url:'/objectives/:memberId',
+            templateUrl: 'app/components/objectives/users_objectives.view.html',
+            controller: 'userObjectivesController as vm'
+        });
+
         $stateProvider.state('dash.users.list', {
             url: '',
             templateUrl: 'app/common/dash/users/users_list.view.html',

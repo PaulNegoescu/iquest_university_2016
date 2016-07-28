@@ -19,7 +19,6 @@
         };
 
         this.update = function(data) {
-
             return apiService.update(this.entity, data);
         };
 

@@ -10,10 +10,6 @@
             data: {
                 //is_granted: ["ROLE_USER","ROLE_ADMIN"]
             }
-        }).state('objectives', {
-            url:'/objectives/:memberId',
-            templateUrl: 'app/components/objectives/users_objectives.view.html',
-            controller: 'userObjectivesController as vm'
         });
     });
 })();

@@ -3,44 +3,11 @@
 
     angular.module('marathon').service('Objectives', Objectives);
 
-    function Objectives(apiService) {
+    function Objectives(BaseModel) {
+        var model = Object.create(BaseModel);
+        model.entity = 'objectives';
 
-        this.entity = 'objectives';
-
-        this.createObjective = function(owner, memberId, objective) {
-            var data = {
-                title: objective.title,
-                ownerId: owner.id,
-                memberId: memberId,
-                descriptions: [
-                    {
-                        type: 'general',
-                        text: objective.general
-                    },
-                    {
-                        type: 'on target',
-                        text: objective.onTarget
-                    },
-                    {
-                        type: 'overachieved',
-                        text: objective.overachieved
-                    },
-                    {
-                        type: 'underachieved',
-                        text: objective.underachieved
-                    }
-                ]
-            };
-
-            return apiService.create(this.entity, data);
-        };
-
-        this.updateObjective = function(data) {
-
-            return apiService.update(this.entity, data);
-        };
-
-        this.objectiveFields = [
+        model.objectiveFields = [
             {
                 key: 'title',
                 type: 'input',
@@ -92,5 +59,6 @@
                 }
             }
         ];
+        return model;
     }
 })();

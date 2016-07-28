@@ -43,7 +43,7 @@
 
         vm.updateObjective = function(data) {
             data.closed = false;
-            Objectives.updateObjective(data);
+            Objectives.update(data);
         };
 
         function openConfirmation(message, cb) {
@@ -84,6 +84,19 @@
                 }
             });
         }
+
+        vm.openEditEvalModal = function(id){
+            $uibModal.open({
+                templateUrl: 'app/common/edit_evaluation_modal/edit_evaluation_modal.view.html',
+                controller: 'EditEvaluationModalController as vm',
+                size: 'md',
+                resolve: {
+                    selectedItem: function() {
+                        return id;
+                    }
+                }
+            });
+        };
 
     }
 })();
