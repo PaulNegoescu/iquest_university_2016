@@ -1,4 +1,4 @@
-<div class="jumbotron wrapper">
+<div class="jumbotron wrapper main-center">
     <h3> Update User Profile: {{vm.user.firstName}} {{vm.user.lastName}}</h3>
     <formly-form model="vm.user" fields="vm.formFields" form="vm.regForm">
         <button type="submit" class="btn btn-success" ng-disabled="vm.regForm.$invalid" ng-click="vm.manage(vm.user)">Update</button>
