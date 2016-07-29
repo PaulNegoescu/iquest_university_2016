@@ -44,7 +44,7 @@
 }
 .statusType {
     font-size: 1.2rem;
-    color: red;
+    color: #357ed5;
     text-transform: uppercase;
 }
 .statusDesription {
@@ -54,6 +54,9 @@
     float: right;
     cursor: pointer;
     color: #357ed5;
+    font-size: 20px;
 }
 
-
+tr.tableRow.ng-scope td {
+    vertical-align: middle;
+}

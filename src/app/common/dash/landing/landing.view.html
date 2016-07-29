@@ -1,65 +1,60 @@
 <div class="jumbotron wrapper">
-    <div class="row">
-        <div class="container-item col-sm-5">
-            <h3>Performance Managers</h3>
+    <div class="container-item col-sm-5">
+        <h3>Performance Managers</h3>
 
-            <ol>
-                <li ng-repeat="owner in vm.owners">{{owner.firstName}} {{owner.lastName | uppercase}}</li>
-            </ol>
-        </div>
-
-        <div class="container-item col-sm-5 col-sm-offset-2">
-            <h3>Team Members</h3>
-
-            <ol>
-                <li ng-repeat="member in vm.members">{{member.firstName}} {{member.lastName | uppercase}}
-                    <i class="glyphicon glyphicon-plus-sign" ui-sref="dash.users.objectives({memberId: member.id})"></i>
-                </li>
-            </ol>
-        </div>
+        <ol>
+            <li ng-repeat="owner in vm.owners">{{owner.firstName}} {{owner.lastName | uppercase}}</li>
+        </ol>
     </div>
 
+    <div class="container-item col-sm-5 col-sm-offset-2">
+        <h3>Team Members</h3>
 
-    <h2>My Objectives</h2>
-
-    <div class="row">
-        <table class="table table-bordered table-hover table-condensed table-striped objectivesTable">
-            <thead class="tableHead">
-            <tr class="tableRow">
-                <th>Title</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Comment</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="tableRow" ng-repeat="objective in vm.userObjectives">
-                <td class="objectivesColumn col-md-2">{{objective.title}}</td>
-                <td class="descriptionColumn col-md-6">
-                    <uib-accordion>
-                        <uib-accordion-group is-open="false">
-                            <uib-accordion-heading class="generalDescription">
-                                {{objective.descriptions[0].text}}
-                                <i class="glyphicon glyphicon-chevron-down"></i>
-                            </uib-accordion-heading>
-                            <div class="objectiveStatus" ng-repeat="i in [1,2,3]">
-                                <p class="statusType">{{objective.descriptions[i].type}}</p>
-                                <p class="statusDescription">{{objective.descriptions[i].text}}</p>
-                            </div>
-                        </uib-accordion-group>
-                    </uib-accordion>
-                </td>
-                <td class="statusColumn col-md-2">
-                    {{objective.lastEvaluation.status}}
-                    <i class="glyphicon glyphicon-list-alt" ng-click="vm.openHistoryModal(objective.id)"></i>
-                </td>
-                <td class="commentsColumn col-md-2">
-                    {{objective.lastEvaluation.comment}}
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <ol>
+            <li ng-repeat="member in vm.members">{{member.firstName}} {{member.lastName | uppercase}}
+                <i class="glyphicon glyphicon-plus-sign" uib-tooltip="Add Objectives" ui-sref="dash.users.objectives({memberId: member.id})"></i>
+            </li>
+        </ol>
     </div>
+
+<h2>My Objectives</h2>
+
+<table class="table table-bordered table-hover table-condensed table-striped objectivesTable">
+    <thead class="tableHead">
+    <tr class="tableRow">
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="tableRow" ng-repeat="objective in vm.userObjectives">
+        <td class="objectivesColumn col-md-2">{{objective.title}}</td>
+        <td class="descriptionColumn col-md-6">
+            <uib-accordion>
+                <uib-accordion-group is-open="false">
+                    <uib-accordion-heading class="generalDescription">
+                        {{objective.descriptions[0].text}}
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                    </uib-accordion-heading>
+                    <div class="objectiveStatus" ng-repeat="i in [1,2,3]">
+                        <p class="statusType">{{objective.descriptions[i].type}}</p>
+                        <p class="statusDescription">{{objective.descriptions[i].text}}</p>
+                    </div>
+                </uib-accordion-group>
+            </uib-accordion>
+        </td>
+        <td class="statusColumn col-md-2">
+            {{objective.lastEvaluation.status}}
+            <i class="glyphicon glyphicon-list-alt" uib-tooltip="See History" ng-click="vm.openHistoryModal(objective.id)"></i>
+        </td>
+        <td class="commentsColumn col-md-2">
+            {{objective.lastEvaluation.comment}}
+        </td>
+    </tr>
+    </tbody>
+</table>
 </div>
 
 
