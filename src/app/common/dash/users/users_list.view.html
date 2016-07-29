@@ -5,7 +5,7 @@
 
     <p>
         <label for="search">Search</label>
-        <input type="text" ng-model = "vm.searchUser">
+        <input type="text" ng-model="vm.searchUser">
     </p>
 
     <div class="alert alert-danger" role="alert" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
@@ -14,15 +14,15 @@
 
     <table class="table table-bordered table-striped table-hover">
         <thead>
-        <tr>
-            <th>Full Name</th>
+        <tr class="tableRow">
+            <th ng-click="vm.sort('lastName')">Full Name</th>
             <th>Username</th>
             <th>Email</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="user in vm.users | filter : vm.search">
+        <tr ng-repeat="user in vm.users | filter : vm.search | orderBy: vm.sortBy: vm.sortAsc">
             <td>{{user.firstName}} {{user.lastName}}</td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
