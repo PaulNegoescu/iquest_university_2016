@@ -69,7 +69,9 @@
         };
 
         function closeObjective() {
+            var index = vm.objectives.indexOf(closeObj);
 
+            vm.objectives.splice(index,1);
             closeObj.closed = true;
             delete closeObj.lastEvaluation;
             Objectives.update(closeObj);
