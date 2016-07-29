@@ -1,0 +1,30 @@
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-wrapper {
+    width: 400px;
+    font-size: 16px;
+    box-shadow: 0 0 11px 0 rgba(50, 50, 50, 1);
+    padding: 30px;
+}
+
+.login-header {
+    background: #eeeeee;
+    padding: 20px;
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.login-button {
+    width: 100%;
+}
+

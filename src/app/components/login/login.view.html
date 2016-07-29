@@ -1,10 +1,12 @@
-<div class="jumbotron wrapper">
-    <h2>Login</h2>
-
+<div class="jumbotron wrapper login-wrapper">
     <div class="alert alert-danger" role="alert" ng-if="vm.errorMessage">{{vm.errorMessage}}</div>
-
-    <formly-form model="vm.user" fields="vm.userFields" form="vm.loginForm">
-        <button type="submit" class="btn btn-success" ng-disabled="vm.loginForm.$invalid" ng-click="vm.login()">Submit</button>
-    </formly-form>
+    <div class="form-wrapper">
+        <h2 class="login-header">Log in</h2>
+        <formly-form class="login-form" model="vm.user" fields="vm.userFields" form="vm.loginForm">
+            <button type="submit" class="btn btn-primary login-button" ng-disabled="vm.loginForm.$invalid" ng-click="vm.login()">Login</button>
+        </formly-form>
+    </div>
 </div>
+
+
 
