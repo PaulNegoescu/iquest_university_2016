@@ -69,7 +69,7 @@
         function closeObjective() {
 
             closeObj.closed = true;
-            Objectives.updateObjective(closeObj);
+            Objectives.update(closeObj);
         }
         vm.openEvaluationModal = function(obj, memberId) {
             $uibModal.open({
