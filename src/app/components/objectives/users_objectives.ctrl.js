@@ -3,7 +3,7 @@
 
     angular.module('marathon').controller('userObjectivesController', utc);
 
-    function utc(Users, Objectives, Session, $stateParams, $uibModal, ConfirmationModal, $log) {
+    function utc(Users, Objectives, Session, $stateParams, $uibModal, ConfirmationModal, $log, $timeout) {
         var vm = this;
         vm.newObjective = {};
         vm.memberId = $stateParams.memberId;
@@ -31,7 +31,9 @@
             });
 
             modalInstance.result.then(function() {
-                getObjectives();
+                $timeout(function() {
+                    getObjectives();
+                }, 2000);
             });
         };
 
