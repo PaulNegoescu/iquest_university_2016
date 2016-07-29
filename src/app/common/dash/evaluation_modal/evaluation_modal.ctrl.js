@@ -14,8 +14,9 @@
 
         vm.save = function () {
             vm.evaluation.objectiveId = vm.objective.id;
-            Evaluations.create(vm.evaluation);
-            $uibModalInstance.close();
+            Evaluations.create(vm.evaluation).then(function() {
+                $uibModalInstance.close();
+            });
         };
 
         vm.cancel = function () {

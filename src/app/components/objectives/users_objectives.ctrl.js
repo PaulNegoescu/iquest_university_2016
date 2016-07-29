@@ -76,7 +76,7 @@
             Objectives.update(closeObj);
         }
         vm.openEvaluationModal = function(obj, memberId) {
-            $uibModal.open({
+            var modalInstance = $uibModal.open({
                 templateUrl: 'app/common/dash/evaluation_modal/evaluation_modal.view.html',
                 controller: 'EvaluationModalController as vm',
                 size: 'md',
@@ -88,6 +88,11 @@
                         return memberId;
                     }
                 }
+            });
+
+            modalInstance.result.then(function() {
+
+                getObjectives();
             });
         }
 
