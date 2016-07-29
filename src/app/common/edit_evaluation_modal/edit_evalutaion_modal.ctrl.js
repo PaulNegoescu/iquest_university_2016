@@ -19,7 +19,12 @@
         });
 
         vm.updateEval = function() {
-            Evaluations.update(vm.lastElement);
+            var data = {
+                id: selectedItem,
+                comment: vm.lastElement.comment,
+                status: vm.lastElement.status
+            }
+            Evaluations.update(data);
         }
 
         vm.ok = function () {

@@ -11,12 +11,6 @@
 
         getObjectives();
 
-        function getObjectives() {
-            Users.readObjectives(vm.memberId).then(function(resp){
-                vm.objectives = resp;
-            });
-        }
-
         Users.findById(vm.memberId).then(function(resp) {
             vm.member = resp;
         });
@@ -41,8 +35,16 @@
             });
         };
 
+        function getObjectives() {
+            Users.readObjectives(vm.memberId).then(function(resp){
+                vm.objectives = [];
+                vm.objectives = resp;
+            });
+        }
+
         vm.updateObjective = function(data) {
             data.closed = false;
+            delete data.lastEvaluation;
             Objectives.update(data);
         };
 
