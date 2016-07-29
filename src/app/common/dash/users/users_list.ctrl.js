@@ -8,6 +8,7 @@
 
         vm.searchUser = '';
         vm.successMessage = '';
+        var oldSortField = '';
 
         Users.read().then(function(result) {
             vm.users = result;
@@ -65,7 +66,7 @@
         }
 
         vm.search = function(row) {
-            var excludeFromSearch = ['id', '$$hashKey'];
+            var excludeFromSearch = ['id', '$$hashKey','role'];
             var result = false;
             for (var key in row) {
                 if(excludeFromSearch.indexOf(key) === -1 && !result) {
@@ -77,6 +78,17 @@
 
         vm.register = function(){
             $state.go('dash.users.register');
+        };
+
+        vm.sort = function(field) {
+            vm.sortBy = field;
+            vm.sortAsc = false;
+
+            if(oldSortField === field) {
+                vm.sortAsc = !vm.sortAsc;
+            }
+
+            oldSortField = field;
         };
     }
 })();
