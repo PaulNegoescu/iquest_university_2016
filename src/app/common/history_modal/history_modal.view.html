@@ -5,14 +5,16 @@
     <table class="table table-bordered table-hover table-condensed table-striped objectivesTable">
         <thead class="tableHead">
         <tr class="tableRow">
-            <th>Date</th>
+            <th>Created On</th>
+            <th>Last Updated On</th>
             <th>Status</th>
             <th>Comment</th>
         </tr>
         </thead>
         <tbody>
         <tr class="tableRow" ng-repeat="evaluation in vm.evaluations">
-            <td class="objectivesColumn col-md-2">{{evaluation.date}}</td>
+            <td class="objectivesColumn col-md-2">{{evaluation.createDate}}</td>
+            <td class="objectivesColumn col-md-2">{{evaluation.updateDate}}</td>
             <td class="descriptionColumn col-md-4">{{evaluation.status}}</td>
             <td class="commentsColumn col-md-6">{{evaluation.comment}}</td>
         </tr>
