@@ -31,9 +31,8 @@
             });
 
             modalInstance.result.then(function() {
-                $timeout(function() {
-                    getObjectives();
-                }, 2000);
+
+                getObjectives();
             });
         };
 

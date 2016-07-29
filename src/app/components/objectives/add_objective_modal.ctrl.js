@@ -33,8 +33,9 @@
                     }
                 ]
             };
-            Objectives.create(data);
-            $uibModalInstance.close();
+            Objectives.create(data).then(function() {
+                $uibModalInstance.close();
+            });
         };
 
         vm.reset = function() {
