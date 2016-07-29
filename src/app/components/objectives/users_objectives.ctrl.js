@@ -69,6 +69,7 @@
         function closeObjective() {
 
             closeObj.closed = true;
+            delete closeObj.lastEvaluation;
             Objectives.update(closeObj);
         }
         vm.openEvaluationModal = function(obj, memberId) {
